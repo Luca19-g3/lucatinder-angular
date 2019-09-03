@@ -232,6 +232,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 *         29/08/2019
 	 * 
 	 */
+	
 	@Override
 	public Perfil getPerfilRamdom(int id) {
 		logger.info("----------------------Entrando a getPerfilRamdom.");
@@ -260,6 +261,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 *         03/09/2019
 	 * 
 	 */
+	@Transactional
 	@Override
 	public void bajaPerfil(int id) {
 		
