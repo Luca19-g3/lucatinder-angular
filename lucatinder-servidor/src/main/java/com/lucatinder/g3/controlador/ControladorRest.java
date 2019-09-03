@@ -84,5 +84,24 @@ public class ControladorRest {
 		return servicio.listaContactos(1);
 	}
 	
+	/**
+	 * retorna un usuario aleatorio 
+	 * 
+	 * @param int id la id del perfil para conseguir una busqueda optima
+	 * @return perfil p un perfil aleatorio
+	 * 
+	 * @author jesus
+	 */
+	
+	@GetMapping(value = "/getperfilrandomrest")
+	public Perfil getperfilrandomrest(@RequestParam("id") int id) {
+		logger.info("---------ejecutando getPerfilRandomRest");
+		
+		return servicio.getPerfilRamdom(id);
+	}
+	
+	
+	
+	
 
 }
