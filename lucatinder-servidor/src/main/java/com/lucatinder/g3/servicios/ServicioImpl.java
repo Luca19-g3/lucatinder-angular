@@ -245,11 +245,40 @@ public class ServicioImpl implements Servicio {
 		perfilDao.darDislike(id1, id2);
 		
 	}
-
+	/**
+	 * Metodo bajaPerfil()
+	 * 
+	 * Metodo para dar de baja un perfil
+	 * 
+	 * @param int id ,del perfil a dar de baja
+	 * @return  void
+	 * @version 1.0
+	 * @author Jesus
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
 	@Override
 	public void bajaPerfil(int id) {
 		perfilDao.bajaPerfil(id);
 		
+	}
+	/**
+	 * Metodo listaContactos
+	 * 
+	 * Metodo para listar los perfiles a los que un perfil se ha dado dislike
+	 * 
+	 * @param int id ,del perfil que consulta
+	 * @return  lista de los descartes
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
+	@Override
+	public List<Perfil> listaDescartes(int id) {
+	return perfilDao.listaDescartes(id);
 	}
 		
 	

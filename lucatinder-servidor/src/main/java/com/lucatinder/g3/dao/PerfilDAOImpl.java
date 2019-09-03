@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.lucatinder.g3.LucaTinderApplication;
 import com.lucatinder.g3.modelo.Contacto;
 import com.lucatinder.g3.modelo.Descarte;
+import com.lucatinder.g3.modelo.Match;
 import com.lucatinder.g3.modelo.Perfil;
 import com.lucatinder.g3.utilidades.FakePerfiles;
 
@@ -294,12 +295,41 @@ public class PerfilDAOImpl implements PerfilDAO {
 			List<Perfil> listDescartes = new ArrayList<Perfil>();
 			List descartes = p.getDescartes2();
 			for (int i = 0; i < descartes.size(); i++) {
-				Contacto c = (Contacto) descartes.get(i);
+				Descarte d = (Descarte) descartes.get(i);
 
-				listDescartes.add(c.getPerfil2());
+				listDescartes.add(d.getPerfil2());
 			}
 			logger.info("------------------" + listDescartes.toString());
 			return listDescartes;
+		
+	}
+	
+	/**
+	 * Metodo listMatches
+	 * 
+	 * metodo para pedir la lista de los perfiles con los que tienes match
+	 * 
+	 * @param la id del perfil que consulta
+	 * @return List<Perfil> Lista de todos los perfiles a los que ha dado dislike
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
+	@Override
+	public List<Perfil> listaMatches(int id) {
+			logger.info("-------------------------------------------------  Entrando a Dao listDescartes");
+			Perfil p = getPerfil(id);
+			List<Perfil> listMatches = new ArrayList<Perfil>();
+			List matches = p.getMatches2();
+			for (int i = 0; i < matches.size(); i++) {
+				Match m = (Match) matches.get(i);
+
+				listMatches.add(m.getPerfil2());
+			}
+			logger.info("------------------" + listMatches.toString());
+			return listMatches;
 		
 	}
 	

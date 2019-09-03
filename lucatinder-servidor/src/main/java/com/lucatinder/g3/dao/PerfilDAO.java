@@ -25,4 +25,5 @@ public interface PerfilDAO {
 	public Perfil getPerfilRamdom(int id);
 	public void bajaPerfil(int id);
 	public List<Perfil> listaDescartes(int id);
+	public List<Perfil> listaMatches(int id);
 }

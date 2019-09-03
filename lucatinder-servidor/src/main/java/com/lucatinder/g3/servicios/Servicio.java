@@ -29,4 +29,5 @@ public interface Servicio {
 	public Perfil getPerfilRamdom(int id);
 	public void darDislike(int id1, int id2);
 	public void bajaPerfil(int id);
+	public List<Perfil> listaDescartes(int id);
 }
