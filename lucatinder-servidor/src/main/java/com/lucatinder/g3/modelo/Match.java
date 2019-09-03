@@ -3,6 +3,8 @@ package com.lucatinder.g3.modelo;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 /**
  * The persistent class for the matches database table.
@@ -21,11 +23,13 @@ public class Match implements Serializable {
 	//bi-directional many-to-one association to Perfil
 	@ManyToOne
 	@JoinColumn(name="id_perfil1")
+	@JsonBackReference
 	private Perfil perfil1;
 
 	//bi-directional many-to-one association to Perfil
 	@ManyToOne
 	@JoinColumn(name="id_perfil2")
+	@JsonBackReference
 	private Perfil perfil2;
 
 	public Match() {

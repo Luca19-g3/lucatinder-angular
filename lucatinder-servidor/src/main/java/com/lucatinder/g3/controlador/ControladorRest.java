@@ -106,12 +106,31 @@ public class ControladorRest {
 	 * @param id del perfil a borrar
 	 * 
 	 * @author jesus
+	 *     03/09/2019
 	 */
 	
 	@GetMapping(value = "/bajaperfilrest")
 	public void bajaPerfilRest(@RequestParam("id") int id) {
 		logger.info("---------ejecutando bajaPerfil");
 		servicio.bajaPerfil(id);
+	}
+	
+	/**
+	 * devuelve un perfil determinado
+	 * 
+	 * @param id del perfil que solicita
+	 * 
+	 * @author jesus
+	 * 
+	 *   03/09/2019
+	 */
+	
+	@GetMapping(value = "/getperfilrest")
+	public Perfil getPerfilRest(@RequestParam("id") int id) {
+		logger.info("---------ejecutando get perfil rest");
+		Perfil p = servicio.getPerfil(id);
+		return p;
+		
 	}
 	
 	
