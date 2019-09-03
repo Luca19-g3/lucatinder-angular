@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +27,7 @@ import com.lucatinder.g3.servicios.Servicio;
  *         27/08/2019
  * 
  */
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class ControladorRest {
 	private static final Logger logger = LoggerFactory.getLogger(LucaTinderApplication.class);
