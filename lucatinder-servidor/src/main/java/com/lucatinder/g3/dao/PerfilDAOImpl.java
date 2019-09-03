@@ -276,7 +276,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 		
 	}
 	/**
-	 * Metodo listContactos
+	 * Metodo listDescartes
 	 * 
 	 * metodo para pedir la lista de los perfiles a los que el usuario ha dado dislike
 	 * 
@@ -293,7 +293,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 			logger.info("-------------------------------------------------  Entrando a Dao listDescartes");
 			Perfil p = getPerfil(id);
 			List<Perfil> listDescartes = new ArrayList<Perfil>();
-			List descartes = p.getDescartes2();
+			List descartes = p.getDescartes1();
 			for (int i = 0; i < descartes.size(); i++) {
 				Descarte d = (Descarte) descartes.get(i);
 

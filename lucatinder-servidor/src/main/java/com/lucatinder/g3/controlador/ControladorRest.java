@@ -81,7 +81,7 @@ public class ControladorRest {
 	@GetMapping(value = "/contactosrest")
 	public List<Perfil> obtenerContactosRest(@RequestParam("id") int id) {
 		logger.info("-----Ejecutando el metodo obtenerPerfilesRest en la clase ControladorRest");
-		return servicio.listaContactos(1);
+		return servicio.listaContactos(id);
 	}
 	
 	/**
@@ -133,8 +133,28 @@ public class ControladorRest {
 		
 	}
 	
+	/**
+	 * Método obtenerDescartesRest
+	 *
+	 * Método para obtener los Descartes de un usuario través de REST
+	 *
+	 * @param int id Id del perfil al que le mostraras los descartes
+	 * @return List<Perfil> Lista con los perfiles de descartes
+	 * @version 1.0
+	 * @author Jorge
+	 *
+	 *         29/08/2019
+	 *
+	 *
+	 *
+	 */
 	
+
+	@GetMapping(value = "/descartesrest")
+	public List<Perfil> obtenerDescartesRest(@RequestParam("id") int id) {
+		logger.info("-----Ejecutando el metodo obtenerPerfilesRest en la clase ControladorRest");
+		return servicio.listaDescartes(id);
 	
-	
+	}
 
 }
