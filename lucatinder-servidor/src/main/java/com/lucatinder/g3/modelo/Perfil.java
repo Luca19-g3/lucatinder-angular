@@ -19,7 +19,7 @@ public class Perfil implements Serializable {
 
 	@Id
 	@Column(name="id_perfil")
-	private int idPerfil;
+	private int id;
 
 	private String correo;
 
@@ -72,12 +72,12 @@ public class Perfil implements Serializable {
 	public Perfil() {
 	}
 
-	public int getIdPerfil() {
-		return this.idPerfil;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setIdPerfil(int idPerfil) {
-		this.idPerfil = idPerfil;
+	public void setIdPerfil(int id) {
+		this.id = id;
 	}
 
 	public String getCorreo() {
@@ -276,4 +276,14 @@ public class Perfil implements Serializable {
 		return matches2;
 	}
 
+	@Override
+	public String toString() {
+		return "Perfil [id=" + id + ", correo=" + correo + ", descripcion=" + descripcion + ", edad=" + edad
+				+ ", genero=" + genero + ", img=" + img + ", nombre=" + nombre + ", password=" + password
+				+ ", preferencias=" + preferencias + ", contactos1=" + contactos1 + ", contactos2=" + contactos2
+				+ ", descartes1=" + descartes1 + ", descartes2=" + descartes2 + ", matches1=" + matches1 + ", matches2="
+				+ matches2 + "]";
+	}
+
+	
 }
