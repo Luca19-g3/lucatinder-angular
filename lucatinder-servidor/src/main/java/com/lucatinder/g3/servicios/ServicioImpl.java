@@ -245,6 +245,12 @@ public class ServicioImpl implements Servicio {
 		perfilDao.darDislike(id1, id2);
 		
 	}
+
+	@Override
+	public void bajaPerfil(int id) {
+		perfilDao.bajaPerfil(id);
+		
+	}
 		
 	
 
