@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,9 +37,9 @@ public class ControladorRest {
 	private Servicio servicio;
 
 	@PostMapping(value = "/newrest")
-	public Perfil newPerfil(Perfil p) {
-		servicio.newPerfil(p);
-		return p;
+	public Perfil newPerfil(@RequestBody Perfil p) {
+		return servicio.newPerfil(p);
+		
 	}
 
 	/**

@@ -3,6 +3,8 @@ package com.lucatinder.g3.modelo;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
@@ -13,7 +15,9 @@ import java.util.List;
  * 
  */
 @Entity
+
 @NamedQuery(name="Perfil.findAll", query="SELECT p FROM Perfil p")
+@JsonIgnoreProperties(value = {"contactos1", "contactos2", "descartes1", "descartes2", "matches1", "matches2"})
 public class Perfil implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -41,32 +45,38 @@ public class Perfil implements Serializable {
 	//bi-directional many-to-one association to Contacto
 	
 	@OneToMany(mappedBy="perfil1")
-	@JsonManagedReference
+	
+	@JsonIgnore
 	private List<Contacto> contactos1;
 
 	//bi-directional many-to-one association to Contacto
 	@OneToMany(mappedBy="perfil2")
 	@JsonManagedReference
+	@JsonIgnore
 	private List<Contacto> contactos2;
 
 	//bi-directional many-to-one association to Descarte
 	@OneToMany(mappedBy="perfil1")
 	@JsonManagedReference
+	@JsonIgnore
 	private List<Descarte> descartes1;
 
 	//bi-directional many-to-one association to Descarte
 	@OneToMany(mappedBy="perfil2")
 	@JsonManagedReference
+	@JsonIgnore
 	private List<Descarte> descartes2;
 
 	//bi-directional many-to-one association to Match
 	@OneToMany(mappedBy="perfil1")
 	@JsonManagedReference
+	@JsonIgnore
 	private List<Match> matches1;
 
 	//bi-directional many-to-one association to Match
 	@OneToMany(mappedBy="perfil2")
 	@JsonManagedReference
+	@JsonIgnore
 	private List<Match> matches2;
 
 	public Perfil() {
