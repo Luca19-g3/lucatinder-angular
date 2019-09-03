@@ -36,21 +36,21 @@ public class FakePerfiles {
 		String firstName = fullName.substring(fullName.lastIndexOf(' '));
 
 		int ramdomN = faker.number().numberBetween(0, 1);
-		char sex;
+		String sex;
 		if (ramdomN == 0) {
-			sex = 'M';
+			sex = "M";
 		} else {
-			sex = 'F';
+			sex = "F";
 		}
 
 		int ramdomN2 = faker.number().numberBetween(0, 3);
-		char prefer;
+		String prefer;
 		if (ramdomN2 == 0) {
-			prefer = 'M';
+			prefer = "M";
 		} else if (ramdomN2 == 1) {
-			prefer = 'F';
+			prefer = "F";
 		} else {
-			prefer = 'A';
+			prefer = "A";
 		}
 		
 
