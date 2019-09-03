@@ -35,7 +35,19 @@ public class ControladorRest {
 
 	@Autowired
 	private Servicio servicio;
-
+	/**
+	 * Método newPerfil
+	 * 
+	 * Método para crear un nuevo perfil
+	 * 
+	 * @param int id Id del perfil al que se mostrará la lista
+	 * @return Perfil p - Perfil que se ha creado
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         29/08/2019
+	 * 
+	 */
 	@PostMapping(value = "/newrest")
 	public Perfil newPerfil(@RequestBody Perfil p) {
 		return servicio.newPerfil(p);
@@ -88,7 +100,7 @@ public class ControladorRest {
 	/**
 	 * retorna un usuario aleatorio 
 	 * 
-	 * @param int id la id del perfil para conseguir una busqueda optima
+	 * @param int id id del perfil que esta logeado
 	 * @return perfil p un perfil aleatorio
 	 * 
 	 * @author jesus
@@ -153,7 +165,7 @@ public class ControladorRest {
 
 	@GetMapping(value = "/descartesrest")
 	public List<Perfil> obtenerDescartesRest(@RequestParam("id") int id) {
-		logger.info("-----Ejecutando el metodo obtenerPerfilesRest en la clase ControladorRest");
+		logger.info("-----Ejecutando el metodo obtenerDescartesRest en la clase ControladorRest");
 		return servicio.listaDescartes(id);
 	
 	}
