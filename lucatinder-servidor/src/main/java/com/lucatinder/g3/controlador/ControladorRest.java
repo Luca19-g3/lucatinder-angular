@@ -100,6 +100,20 @@ public class ControladorRest {
 		return servicio.getPerfilRamdom(id);
 	}
 	
+	/**
+	 * borra un perfil
+	 * 
+	 * @param id del perfil a borrar
+	 * 
+	 * @author jesus
+	 */
+	
+	@GetMapping(value = "/bajaperfilrest")
+	public void bajaPerfilRest(@RequestParam("id") int id) {
+		logger.info("---------ejecutando bajaPerfil");
+		servicio.bajaPerfil(id);
+	}
+	
 	
 	
 	
