@@ -1,0 +1,16 @@
+<div class="container p-0">
+    <div class="d-flex flex-row flex-wrap p-0 m-0 pt-lg-5">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let perfil of perfiles">
+            <div class="card card-propio p-3">
+                <img src="https://img.freepik.com/foto-gratis/calle-moda-estilo-pelo-hermosa-chica_1139-844.jpg?size=626&ext=jpg"
+                    class="card-img-top" alt="Imagen de un perfil">
+                <div class="card-body p-0 pt-3">
+                    <div class="row m-0 p-0">
+                        <h4 class="card-title col-8 m-0 p-0 text-left">{{perfil.nombre}}</h4>
+                        <h4 class="card-title col-4 m-0 p-0 text-right">{{perfil.edad}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

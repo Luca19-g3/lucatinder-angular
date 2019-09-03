@@ -1,0 +1,28 @@
+<div class="container-fluid p-0 contenedor-titulo">
+    <h1 class="text-center py-5 mb-0">Mira todos tus <span><i class="fas fa-times text-info"></i></span></h1>
+</div>
+
+<div class="py-5 my-2 text-center">
+    <p><i class="far fa-smile-wink fs-5 color-propio"></i></p>
+    <p class="display-4 pt-3">¡Genial! No has descartado a nadie.</p>
+    <p class="h3 text-lmuted">Sigue conociendo gente interesante en <span
+            class="color-propio font-weight-bold">lucatinder</span>.</p>
+    <p><a href="#" class="h4 text-info">¡Volver al inicio!</a></p>
+</div>
+
+<div class="container p-0">
+    <div class="d-flex flex-row flex-wrap p-0 m-0 pt-lg-5">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let perfil of perfiles">
+            <div class="card card-propio p-3">
+                <img src="https://img.freepik.com/foto-gratis/calle-moda-estilo-pelo-hermosa-chica_1139-844.jpg?size=626&ext=jpg"
+                    class="card-img-top" alt="Imagen de un perfil">
+                <div class="card-body p-0 pt-3">
+                    <div class="row m-0 p-0">
+                        <h4 class="card-title col-8 m-0 p-0 text-left">{{perfil.nombre}}</h4>
+                        <h4 class="card-title col-4 m-0 p-0 text-right">{{perfil.edad}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+/* You can add global styles to this file, and also import other style files */
+
+#contenedor-index {
+    background-image: url("assets/img/fondo_index.jpg");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+}
+
+.filtro_oscuro{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,.6);
+}
+
+.bg-oscuro{
+background-color: rgba(0,0,0,.7);
+}
+
+.fs-12{
+font-size: 1.2em;
+}
+
+.fs-15{
+font-size: 1.5em;
+}
+
+.fs-5{
+font-size: 15em;
+}
+
+.bt-1{
+border-top: 1px #fc5c5c solid;
+}
+
+.color-propio{
+color: #fc5c5c !important;
+}
+
+.bg-propio{
+background-color: #fc5c5c !important;
+}
+
+.btn-color-propio{
+border-color: #fc5c5c !important;
+color: #fc5c5c !important;
+font-size: 1.2em !important;
+}
+
+.btn-color-propio:hover{
+border-color: #fc5c5c !important;
+background-color: #fc5c5c !important;
+color: white !important;
+}
+
+input:focus {
+border-color: #fc5c5c !important;
+background-color: #fc5c5c !important;
+color: white !important;
+outline: none !important;
+-webkit-box-shadow: none !important;
+box-shadow: none !important;
+text-align: center;
+}
+
+.desplazar-derecha{
+transform: translateX(200%);
+transition-duration: 2s;
+}
+
+.desplazar-izquierda{
+/* transform: translateX(-3000px);
+transition-duration: .3s;
+transition-timing-function: linear;
+-moz-transition-duration: .3s;
+-moz-transition-timing-function: linear;
+-webkit-transition-duration: .3s;
+-webkit-transition-timing-function: linear;
+-o-transition-duration: .3s;
+-o-transition-timing-function: linear; */
+transform: translateX(-200%);
+transition-timing-function: linear;
+transition: all 1s ease-in-out;
+
+}
+
+.fila-iconos-selector{
+position: relative;
+top: -8em;
+margin-bottom: -8em !important;
+}
+
+.contenedor-titulo{
+background-image: url("assets/img/just-waves.png"); 
+background-repeat: repeat; 
+}
+
+.card-propio:hover{
+border-color: #fc5c5c;
+}
+
+.card-propio:hover h4{
+color: #fc5c5c;
+}
+
+.nav-propio{
+border-bottom: 2px transparent solid;
+}
+.nav-propio:hover{
+border-bottom-color: #fc5c5c;
+}
+
+.navbar-toggler{
+outline: none !important;
+-webkit-box-shadow: none !important;
+}
+
+@media (max-width: 992px) { 
+
+.nav-item {
+border-top: 2px transparent solid;
+border-bottom: 2px transparent solid;
+font-size: 1.5em;
+line-height: 1.5em;
+}
+nav ul:first-child {
+margin-top: .5em;
+}
+.nav-item:hover {
+border-color: #fc5c5c;
+}
+.nav-propio{
+border-bottom: none;
+}
+}
+

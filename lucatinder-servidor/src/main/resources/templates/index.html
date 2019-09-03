@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<!-- Static content -->
+<link rel="stylesheet" href="/resources/css/estilos.css">
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/577b646a6d.js"></script>
+<title>Lucatinder</title>
+</head>
+
+<body>
+	<div class="container-fluid p-0" id="contenedor-index">
+		<div class="filtro_oscuro d-flex align-items-center">
+			<div class="col-12 col-md-8 mx-auto text-white bg-oscuro px-5 py-5">
+				<div class="text-center">
+					<img src="/resources/img/logo.png" class="fluid-img col-3"
+						alt="logo">
+				</div>
+
+				<form method="post" th:object="${perfil}" th:action="@{/entrar}"
+					class="mt-4 text-center">
+					<h4 class="text-center">Entra y descubre nuevos perfiles</h4>
+					<div class="row col-4 m-0 mt-4 p-0 pr-2 mx-auto">
+						<label for="perfil_id" class="col-4 fs-12">Id</label> <input
+							class="form-control col-8" id="perfil_id" type="text"
+							th:field="*{id}" required />
+					</div>
+					<div>
+						<p class="m-0">
+							<span th:text="${errorpropio.mensaje}"
+								class="text-danger font-weight-bold"></span>
+						</p>
+					</div>
+					<div class="col-4 m-0 mt-4 p-0 pl-2  mx-auto">
+						<input class="btn btn-outline-info btn-block btn-color-propio"
+							type="submit" value="Entrar" />
+					</div>
+				</form>
+
+				<div class="bt-1 my-4"></div>
+				<div class="row m-0 p-0 my-4 text-center">
+					<p class="m-0">
+						<span th:text="${errorpropio.mensajeCreada}"
+							class="text-success font-weight-bold"></span>
+					</p>
+					<h3 class="col-12">
+						¿Aún no estás en <span class="color-propio font-weight-bold">Lucatinder?</span>
+					</h3>
+					<h4 class="col-12">¡Regístrate ya!</h4>
+				</div>
+
+				<form method="post" th:object="${perfil}" th:action="@{/new}"
+					class="mt-4 text-center">
+					<div class="row m-0 p-0">
+						<div class="row col-6 m-0 p-0">
+							<label for="perfil_correo" class="col-3 fs-12">Email</label> <input
+								class="form-control col-9" id="perfil_correo" type="email"
+								th:field="*{correo}" maxlength="45" required />
+						</div>
+						<div class="row col-6 m-0 p-0">
+							<label for="perfil_password" class="col-4 fs-12">Contraseña</label>
+							<input class="form-control col-8" id="perfil_password"
+								type="password" th:field="*{password}" maxlength="16" required />
+						</div>
+					</div>
+					<div class="row m-0 p-0 mt-4">
+						<div class="row col-6 m-0 p-0">
+							<label for="perfil_nombre" class="col-3 fs-12">Me llamo</label> <input
+								class="form-control col-9" id="perfil_nombre" type="text"
+								th:field="*{nombre}" maxlength="45" required />
+						</div>
+						<div class="row col-3 m-0 p-0">
+							<label for="perfil_genero" class="col-6 fs-12">soy</label> <select
+								class="form-control col-6" id="perfil_genero"
+								th:field="*{genero}" required>
+								<option th:value="'M'" th:field="*{genero}">Hombre</option>
+								<option th:value="'F'" th:field="*{genero}">Mujer</option>
+							</select>
+						</div>
+						<div class="row col-3 m-0 p-0">
+							<label for="perfil_edad" class="col-4 fs-12">tengo</label> <input
+								class="form-control col-8" id="perfil_edad" type="number"
+								th:field="*{edad}" min="18" max="90" required>
+						</div>
+					</div>
+					<div class="row m-0 p-0 mt-4">
+						<div class="row col-6 m-0 p-0">
+							<label for="perfil_preferencia_sexual" class="col-3 fs-12">Busco</label>
+							<select class="form-control col-9" id="perfil_preferencia_sexual"
+								th:field="*{preferencias}" required>
+								<option th:value="'M'" th:field="*{preferencias}">Hombre</option>
+								<option th:value="'F'" th:field="*{preferencias}">Mujer</option>
+							</select>
+						</div>
+						<div class="row col-3 m-0 p-0">
+							<label for="perfil_preferencia_edad_min" class="col-6 fs-12">entre</label>
+							<input class="form-control col-6"
+								id="perfil_preferencia_edad_min" type="number" min="18" max="90"
+								required />
+						</div>
+						<div class="row col-3 m-0 p-0">
+							<label for="perfil_preferencia_edad_min"
+								class="col-6 fs-12 text-center">y</label> <input
+								class="form-control col-6" id="perfil_preferencia_edad_min"
+								type="number" min="18" max="90" required>
+						</div>
+					</div>
+
+					<div class="row m-0 mt-4">
+						<input
+							class="btn btn-outline-info btn-block btn-color-propio col-4 mx-auto"
+							type="submit" value="Registrarse" />
+					</div>
+			</div>
+			</form>
+		</div>
+	</div>
+	</div>
+	<!-- Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

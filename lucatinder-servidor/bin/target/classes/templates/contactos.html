@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <!--     Static content -->
+    <link rel="stylesheet" href="/resources/css/estilos.css">
+    <link rel="stylesheet" href="estilos.css">
+    <!--     Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--     Font Awesome -->
+    <script src="https://kit.fontawesome.com/577b646a6d.js"></script>
+    <title>Contactos</title>
+</head>
+
+<body>
+
+    <div class="container p-0">
+        <p>Hola <span th:text="${perfil.nombre}"></span></p>
+        <h1 class="text-center">Estos son todos tus <span><i class="fas fa-heart color-propio"></i></span></h1>
+        <div class="card-columns">
+            <div class="card p-3" th:each="contactolista : ${listaContacto}">
+                <img src="https://img.freepik.com/foto-gratis/calle-moda-estilo-pelo-hermosa-chica_1139-844.jpg?size=626&ext=jpg"
+                    class="card-img-top" alt="Imagen de un perfil">
+                <div class="card-body pb-0">
+                    <div class="row m-0 p-0">
+                        <h4 class="card-title col-8 m-0 p-0 text-left"><span th:text="${contactolista.nombre}" /></h4>
+                        <h4 class="card-title col-4 m-0 p-0 text-right"><span th:text="${contactolista.edad}" /></h4>
+                    </div>
+                    <p class="card-text mt-3"><span th:text="${contactolista.descripcion}" /></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--     Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
