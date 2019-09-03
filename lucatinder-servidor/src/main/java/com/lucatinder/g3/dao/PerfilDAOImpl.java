@@ -245,6 +245,33 @@ public class PerfilDAOImpl implements PerfilDAO {
 		
 		return p ;
 	}
+
+	
+	/**
+	 * Metodo bajaPerfil
+	 * 
+	 * borra un perfil determinado
+	 * 
+	 * 
+	 * @param int id del perfil a borrar
+	 * @version 1.0
+	 * @author jesus
+	 * 
+	 *         03/09/2019
+	 * 
+	 */
+	@Override
+	public void bajaPerfil(int id) {
+		
+		
+		if(null!=getPerfil(id)){
+			Perfil p = getPerfil(id);
+			entityManager.remove(p);
+		}else {
+			logger.warn("perfil no encontrado");
+		}
+		
+	}
 	
 	
 

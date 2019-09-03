@@ -23,4 +23,5 @@ public interface PerfilDAO {
 	public void darDislike(int id1, int id2);
 	public boolean comprobarLike(int id1, int id2);
 	public Perfil getPerfilRamdom(int id);
+	public void bajaPerfil(int id);
 }
