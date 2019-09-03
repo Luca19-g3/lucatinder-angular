@@ -110,7 +110,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 * @param la id del perfil a consultar
 	 * @return List<Perfil> Lista de todos los perfiles a los que has dado like
 	 * @version 1.0
-	 * @author jesus
+	 * @author Jorge
 	 * 
 	 *         28/08/2019
 	 * 
@@ -138,7 +138,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 * @param id 2 id del usuario que recibe el like
 	 * @return void
 	 * @version 1.0
-	 * @author jesus
+	 * @author Jorge
 	 * 
 	 *         28/08/2019
 	 * 
@@ -272,6 +272,34 @@ public class PerfilDAOImpl implements PerfilDAO {
 		}else {
 			logger.warn("perfil no encontrado");
 		}
+		
+	}
+	/**
+	 * Metodo listContactos
+	 * 
+	 * metodo para pedir la lista de los perfiles a los que el usuario ha dado dislike
+	 * 
+	 * @param la id del perfil que consulta
+	 * @return List<Perfil> Lista de todos los perfiles a los que ha dado dislike
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
+	@Override
+	public List<Perfil> listaDescartes(int id) {
+			logger.info("-------------------------------------------------  Entrando a Dao listDescartes");
+			Perfil p = getPerfil(id);
+			List<Perfil> listDescartes = new ArrayList<Perfil>();
+			List descartes = p.getDescartes2();
+			for (int i = 0; i < descartes.size(); i++) {
+				Contacto c = (Contacto) descartes.get(i);
+
+				listDescartes.add(c.getPerfil2());
+			}
+			logger.info("------------------" + listDescartes.toString());
+			return listDescartes;
 		
 	}
 	
