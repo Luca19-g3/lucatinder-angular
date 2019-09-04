@@ -10,11 +10,12 @@ import { ServicioService } from 'src/app/servicio/servicio.service';
 export class ContactosComponent implements OnInit {
 
   contactos: Perfil[]=[];
-
+id:number;
   constructor(public _servicio: ServicioService) { }
 
   ngOnInit() {
-    //this.obtenerContactos(1);
+    this.id = parseInt(window.localStorage.getItem('id_lucatinder'));
+    this.obtenerContactos(this.id);
   }
 
   obtenerContactos(id: number) {
