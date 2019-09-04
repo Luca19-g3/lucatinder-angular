@@ -13,23 +13,23 @@ export class LoginComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(public _servicio:ServicioService, private router: Router) { }
+  constructor(public _servicio: ServicioService, private router: Router) { }
 
   ngOnInit() {
-    this.formulario = new FormGroup( {
-      id: new FormControl( null, Validators.required )
+    this.formulario = new FormGroup({
+      id: new FormControl(null, Validators.required)
     });
   }
 
-  loginUsuario(){
-      console.info(this.formulario.value.id);
-     this._servicio.login(this.formulario.value.id).subscribe((respuesta:Perfil)=>{
-       console.log(respuesta);
-       if(respuesta != null){
-        this.router.navigate(['/listado']);
-        window.localStorage.setItem('id_lucatinder', (respuesta.id).toString() );
-       }
-      });
-   }
+  loginUsuario() {
+    console.info(this.formulario.value.id);
+    this._servicio.login(this.formulario.value.id).subscribe((respuesta: Perfil) => {
+      console.log(respuesta);
+      if (respuesta != null) {
+        this.router.navigate(['listado']);
+        window.localStorage.setItem('id_lucatinder', (respuesta.id).toString());
+      }
+    });
+  }
 
 }

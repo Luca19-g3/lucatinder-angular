@@ -1,0 +1,22 @@
+ <div class="container-fluid p-0" id="contenedor-index">
+  <div class="filtro_oscuro d-flex align-items-center">
+    <div class="col-12 col-md-8 mx-auto text-white bg-oscuro px-5 py-5">
+      <span th:text="${errorpropio.mensaje}"></span>
+      <div class="text-center">
+        <img src="../assets/img/logo.png" class="fluid-img col-3" alt="logo">
+      </div>
+
+      <app-login></app-login>
+
+      <div class="bt-1 my-4"></div>
+      <div class="row m-0 p-0 my-4 text-center">
+        <h3 class="col-12">¿Aún no estás en <span class="color-propio font-weight-bold">Lucatinder?</span>
+        </h3>
+        <h4 class="col-12">¡Regístrate ya!</h4>
+      </div>
+
+      <app-alta-perfil></app-alta-perfil>
+
+    </div>
+  </div>
+</div> 

@@ -17,6 +17,9 @@ import { MatchesComponent } from './componentes/matches/matches.component';
 import { ChatComponent } from './componentes/chat/chat.component';
 import { AltaPerfilComponent } from './componentes/alta-perfil/alta-perfil.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { IndexComponent } from './componentes/index/index.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { InicioComponent } from './componentes/inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { LoginComponent } from './componentes/login/login.component';
     MatchesComponent,
     ChatComponent,
     AltaPerfilComponent,
-    LoginComponent
+    LoginComponent,
+    IndexComponent,
+    PerfilComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
