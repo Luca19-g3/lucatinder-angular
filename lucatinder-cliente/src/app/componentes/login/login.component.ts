@@ -10,7 +10,7 @@ import { Perfil } from 'src/app/modelo/perfil';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  noexiste: boolean = false;
   formulario: FormGroup;
 
   constructor(public _servicio: ServicioService, private router: Router) { }
@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
       if (respuesta != null) {
         this.router.navigate(['listado']);
         window.localStorage.setItem('id_lucatinder', (respuesta.id).toString());
+      } else {
+    this.noexiste= true;
       }
     });
   }

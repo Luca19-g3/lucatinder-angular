@@ -10,11 +10,12 @@ import { Perfil } from '../../modelo/Perfil';
 export class ListadoComponent implements OnInit {
 
   perfiles:Perfil[];
-  id: number = 1;
+  id: number;
 
   constructor(public _servicio:ServicioService) { }
 
   ngOnInit() {
+    this.id = parseInt(window.localStorage.getItem('id_lucatinder'));
     this.obtenerPerfiles(this.id);
   }
 
