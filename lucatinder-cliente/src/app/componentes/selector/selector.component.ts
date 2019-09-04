@@ -46,8 +46,8 @@ export class SelectorComponent implements OnInit {
       });
       
     }
-  componentRefresh.apply
-      //this.refresh();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate(["/selector"]));
   
   }
 
