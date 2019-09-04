@@ -23,6 +23,14 @@
 background-color: rgba(0,0,0,.7);
 }
 
+.bg-none{
+    background: none;
+}
+
+.b-none{
+    border: none;
+}
+
 .fs-12{
 font-size: 1.2em;
 }
