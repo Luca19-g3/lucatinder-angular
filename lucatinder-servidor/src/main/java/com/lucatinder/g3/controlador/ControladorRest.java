@@ -192,12 +192,15 @@ public class ControladorRest {
 	
 	@GetMapping(value = "/darlikerest")
 	public void darLike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
+		logger.info("-----------------ejecutando dar like");
 		servicio.darLike(id1, id2);
 		
 	}
 	
 	@GetMapping(value = "/dardislikerest")
+	
 	public void darDislike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
+		logger.info("-----------------ejecutando dar dislike ");
 		servicio.darDislike(id1, id2);
 		
 	}

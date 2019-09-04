@@ -35,5 +35,12 @@ export class ServicioService {
   obtenerPerfilAleatorio(id: number){
     return this.http.get<Perfil>(this.userUrl + "getperfilrandomrest?id=" + id);
   }
-  
+
+  dardislike(id1: number,id2: number){
+   return this.http.get(this.userUrl + "dardislikerest?id1=" + id1 + "&id2="+id2);
+  }
+  darlike(id1: number,id2: number){
+   return this.http.get(this.userUrl + "darlikerest?id1=" + id1 + "&id2="+id2);
+  }
+
 }

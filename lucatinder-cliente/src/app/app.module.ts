@@ -20,7 +20,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { IndexComponent } from './componentes/index/index.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
-import { LikeComponent } from './componentes/like/like.component';
+
 
 @NgModule({
   declarations: [
@@ -38,14 +38,15 @@ import { LikeComponent } from './componentes/like/like.component';
     IndexComponent,
     PerfilComponent,
     InicioComponent,
-    LikeComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [ServicioService],
   bootstrap: [AppComponent]

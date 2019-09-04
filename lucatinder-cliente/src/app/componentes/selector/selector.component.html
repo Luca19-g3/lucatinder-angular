@@ -7,16 +7,15 @@
                 class="card-img-top" alt="Imagen de un perfil">
         </div>
         <div class="p-0 d-flex justify-content-around fila-iconos-selector">
-            <p class="mb-0"><a href="#"><i class="fas fa-heart fa-7x color-propio"></i></a></p>
-            <p class="mb-0"><a href="#"><i class="fas fa-times fa-7x text-info"></i></a></p>
+            <button class="mb-0" (click) = "calificar(true)"><i class="fas fa-heart fa-7x color-propio"></i></button>
+            <button class="mb-0" (click) = "calificar(false)"><i class="fas fa-times fa-7x text-info"></i></button>
         </div>
         <div class="card-body pb-0 pt-5">
             <div class="row m-0 p-0">
                 <h2 class="card-title col-6 text-left">{{perfil.nombre}}</h2>
                 <h3 class="card-title col-6 text-right">{{perfil.edad}} años</h3>
             </div>
-            <p *ngIf="perfil.descripcion == null" class="card-text">Sin descripción...</p>
-            <p *ngIf="perfil.descripcion != null" class="card-text">{{perfil.descripcion}}</p>
+ 
         </div>
     </div>
 </div>
