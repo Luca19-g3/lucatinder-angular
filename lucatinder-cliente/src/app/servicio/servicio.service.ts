@@ -27,5 +27,9 @@ export class ServicioService {
     console.log(this.userUrl + "entrarrest?id=" + id);
     return this.http.get(this.userUrl + "entrarrest?id=" + id);
   }
+
+  obtenerPerfilAleatorio(id: number){
+    return this.http.get<Perfil>(this.userUrl + "getperfilrandomrest?id=" + id);
+  }
   
 }

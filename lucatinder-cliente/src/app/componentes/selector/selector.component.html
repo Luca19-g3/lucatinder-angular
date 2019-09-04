@@ -12,13 +12,11 @@
         </div>
         <div class="card-body pb-0 pt-5">
             <div class="row m-0 p-0">
-                <h2 class="card-title col-6 text-left">Perfil 1</h2>
-                <h3 class="card-title col-6 text-right">22 años</h3>
+                <h2 class="card-title col-6 text-left">{{perfil.nombre}}</h2>
+                <h3 class="card-title col-6 text-right">{{perfil.edad}} años</h3>
             </div>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorem, laborum laudantium sed reiciendis magni id quidem necessitatibus
-                praesentium exercitationem hic omnis aliquam alias modi tenetur possimus.
-                Ex impedit nam quod!</p>
+            <p *ngIf="perfil.descripcion == null" class="card-text">Sin descripción...</p>
+            <p *ngIf="perfil.descripcion != null" class="card-text">{{perfil.descripcion}}</p>
         </div>
     </div>
 </div>
