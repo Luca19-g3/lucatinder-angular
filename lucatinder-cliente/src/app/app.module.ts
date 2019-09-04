@@ -20,6 +20,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { IndexComponent } from './componentes/index/index.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
+import { PerfilPropioComponent } from './componentes/perfil-propio/perfil-propio.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
     IndexComponent,
     PerfilComponent,
     InicioComponent,
+    PerfilPropioComponent,
     
   ],
   imports: [

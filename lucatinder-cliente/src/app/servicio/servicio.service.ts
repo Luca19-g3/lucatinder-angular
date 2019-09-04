@@ -11,6 +11,10 @@ export class ServicioService {
 
   constructor(public http: HttpClient) { }
 
+  obtenerPerfil(id:number){
+    return this.http.get(this.userUrl + "getperfilrest?id=" + id);
+  }
+
   listaPerfiles(id: number) {
     return this.http.get(this.userUrl + "perfilesrest?id=" + id);
   }
@@ -28,7 +32,6 @@ export class ServicioService {
   }
 
   login(id:number){
-    console.log(this.userUrl + "entrarrest?id=" + id);
     return this.http.get(this.userUrl + "entrarrest?id=" + id);
   }
 

@@ -7,6 +7,7 @@ export class Perfil {
     genero: string;
     preferencias: string;
     id?:number;
+    descripcion?:string;
 
 
     constructor(correo: string,
@@ -15,7 +16,8 @@ export class Perfil {
         edad: number,
         genero: string,
         preferencias: string,
-        id?:number
+        id?:number,
+        descripcion?:string
         ) {
 
         this.correo = correo;
@@ -25,6 +27,7 @@ export class Perfil {
         this.genero = genero;
         this.preferencias = preferencias;
         this.id = id;
+        this.descripcion = descripcion;
 
 
     }

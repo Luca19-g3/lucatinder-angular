@@ -111,6 +111,7 @@ background-repeat: repeat;
 
 .card-propio:hover{
 border-color: #fc5c5c;
+text-decoration: none;
 }
 
 .card-propio:hover h4{

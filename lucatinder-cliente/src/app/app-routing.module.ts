@@ -48,6 +48,10 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
+    component: ListadoComponent
+  },
+  {
+    path: 'perfil/:id',
     component: PerfilComponent
   }
   
