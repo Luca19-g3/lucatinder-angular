@@ -189,5 +189,17 @@ public class ControladorRest {
 		Perfil p = servicio.getPerfil(id);
 		return p;
 	}
+	
+	@GetMapping(value = "/darlikerest")
+	public void darLike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
+		servicio.darLike(id1, id2);
+		
+	}
+	
+	@GetMapping(value = "/dardislikerest")
+	public void darDislike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
+		servicio.darDislike(id1, id2);
+		
+	}
 
 }
