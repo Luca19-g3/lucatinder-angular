@@ -29,7 +29,7 @@ public class LucaTinderApplicationTests {
 	public void contextLoads() {
 		
 		
-		pmodificarp();
+		pruebaLike();
 	}
 	
 	/**
@@ -81,7 +81,7 @@ public class LucaTinderApplicationTests {
 	 public void pruebaLike() {
 
 		 
-		 boolean prueba = perfil.comprobarLike(1, 2);
+		 boolean prueba = perfil.comprobarLike(1, 8);
 		 System.out.println("prueba");
 		 assertTrue(prueba);
 		 
