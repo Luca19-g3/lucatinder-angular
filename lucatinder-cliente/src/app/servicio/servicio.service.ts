@@ -22,5 +22,10 @@ export class ServicioService {
   crearPerfil(perfil: Perfil) {
     return this.http.post(this.userUrl + "newrest", perfil);
   }
+
+  login(id:number){
+    console.log(this.userUrl + "entrarrest?id=" + id);
+    return this.http.get(this.userUrl + "entrarrest?id=" + id);
+  }
   
 }

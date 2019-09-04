@@ -16,6 +16,7 @@ import { DescartesComponent } from './componentes/descartes/descartes.component'
 import { MatchesComponent } from './componentes/matches/matches.component';
 import { ChatComponent } from './componentes/chat/chat.component';
 import { AltaPerfilComponent } from './componentes/alta-perfil/alta-perfil.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AltaPerfilComponent } from './componentes/alta-perfil/alta-perfil.compo
     DescartesComponent,
     MatchesComponent,
     ChatComponent,
-    AltaPerfilComponent
+    AltaPerfilComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
