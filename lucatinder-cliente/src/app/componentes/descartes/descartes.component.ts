@@ -9,7 +9,7 @@ import { ServicioService } from 'src/app/servicio/servicio.service';
 })
 export class DescartesComponent implements OnInit {
 
-  descartes:Perfil[];
+  descartes:Perfil[]=[];
   id: number;
 
   constructor(public _servicio:ServicioService) { }
