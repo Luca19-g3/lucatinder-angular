@@ -175,7 +175,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 		boolean leGusto;
 	
 			logger.info("------Entrando en comprobar like, en un filo te digo si le gustas");
-			Object o = entityManager.createNativeQuery("SELECT Count(id_contacto) FROM contacto WHERE id_contacto="+id1+" AND id_like="+id2).getSingleResult();
+			Object o = entityManager.createNativeQuery("SELECT Count(id_contacto) FROM contacto WHERE id_perfil="+id1+" AND id_like="+id2).getSingleResult();
 			String s = o.toString();
 			int num = Integer.parseInt(s);	
 			System.out.println(num);
