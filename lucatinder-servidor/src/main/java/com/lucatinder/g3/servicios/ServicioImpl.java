@@ -280,6 +280,26 @@ public class ServicioImpl implements Servicio {
 	public List<Perfil> listaDescartes(int id) {
 	return perfilDao.listaDescartes(id);
 	}
+
+	
+	/**
+	 * Metodo match
+	 * 
+	 * comprueba si hay un mach y lo crea
+	 * 
+	 * @param int id1
+	 * @param int id2
+	 * @version 1.0
+	 * @author jesus
+	 * 
+	 *         04/09/2019
+	 * 
+	 */
+	@Override
+	public void match(int id1, int id2) {
+		// TODO Auto-generated method stub
+		
+	}
 		
 	
 

@@ -332,7 +332,14 @@ public class PerfilDAOImpl implements PerfilDAO {
 			return listMatches;
 		
 	}
-	
+	/**
+	 * ---NO FUNCIONA--
+	 * @param id, perfil
+	 * @return perfil p el perfil modificado
+	 * @author jesus
+	 * 
+	 * 	04/09/2019
+	 */
 	@Transactional
 	@Override
 	public Perfil modifPerfil(int id,Perfil pnew) {
@@ -342,6 +349,28 @@ public class PerfilDAOImpl implements PerfilDAO {
 		p.setNombre(pnew.getNombre());
 		entityManager.flush();
 		return p;
+	}
+	
+	/**
+	 * crea un match
+	 * @param int id1
+	 * @param int id 2
+	 * 
+	 * @author jesus
+	 * 
+	 * 	04/09/2019
+	 */
+	@Transactional
+	@Override
+	public void match(int id1, int id2) {
+		logger.info("----------------------------------------match");
+		Perfil p = getPerfil(id1);
+		Perfil p2 = getPerfil(id2);
+		Match c = new Match();
+		c.setPerfil1(p);
+		c.setPerfil2(p2);
+		
+		entityManager.merge(c);
 	}
 	
 	

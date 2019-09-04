@@ -27,4 +27,5 @@ public interface PerfilDAO {
 	public List<Perfil> listaDescartes(int id);
 	public List<Perfil> listaMatches(int id);
 	public Perfil modifPerfil(int id,Perfil p);
+	public void match(int id1, int id2);
 }
