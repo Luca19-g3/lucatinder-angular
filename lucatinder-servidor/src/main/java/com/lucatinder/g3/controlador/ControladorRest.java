@@ -169,5 +169,25 @@ public class ControladorRest {
 		return servicio.listaDescartes(id);
 	
 	}
+	/**
+	 * Método login
+	 *
+	 * Metodo para entrar a la aplicacion
+	 *
+	 * @param int id Id del perfil aque logea
+	 * @return Perfil p - Perfil que se logea
+	 * @version 1.0
+	 * @author Jorge
+	 *
+	 *         29/08/2019
+	 *
+	 *
+	 *
+	 */
+	@GetMapping(value = "/entrarrest")
+	public Perfil login(@RequestParam("id") int id) {
+		Perfil p = servicio.getPerfil(id);
+		return p;
+	}
 
 }
