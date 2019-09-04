@@ -19,7 +19,7 @@ export class ListadoComponent implements OnInit {
   }
 
   obtenerPerfiles(id:number){
-    this._servicio.obtenerPerfiles(id).subscribe((datos:Perfil[])=>{this.perfiles = datos});
+    this._servicio.listaPerfiles(id).subscribe((datos:Perfil[])=>{this.perfiles = datos});
   }
 
 }

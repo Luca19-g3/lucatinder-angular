@@ -11,12 +11,16 @@ export class ServicioService {
 
   constructor(public http: HttpClient) { }
 
-  obtenerPerfiles(id: number) {
+  listaPerfiles(id: number) {
     return this.http.get(this.userUrl + "perfilesrest?id=" + id);
   }
 
   obtenerContactos(id: number) {
     return this.http.get(this.userUrl + "contactosrest?id=" + id);
+  }
+
+  obtenerDescartes(id: number) {
+    return this.http.get(this.userUrl + "descartesrest?id=" + id);
   }
 
   crearPerfil(perfil: Perfil) {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Perfil } from 'src/app/modelo/perfil';
+import { ServicioService } from 'src/app/servicio/servicio.service';
 
 @Component({
   selector: 'app-descartes',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DescartesComponent implements OnInit {
 
-  constructor() { }
+  descartes:Perfil[];
+  id: number = 1;
+
+  constructor(public _servicio:ServicioService) { }
 
   ngOnInit() {
+    this.obtenerPerfiles(this.id);
+  }
+
+  obtenerPerfiles(id:number){
+    this._servicio.listaPerfiles(id).subscribe((datos:Perfil[])=>{this.descartes = datos});
   }
 
 }
