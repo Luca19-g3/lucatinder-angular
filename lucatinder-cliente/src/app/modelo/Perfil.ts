@@ -1,11 +1,28 @@
 export class Perfil {
 
-    id: number;
     correo: string;
-    descripcion: string;
+    password: string;
+    nombre: string;
     edad: number;
     genero: string;
-    nombre: string;
-    password: string;
     preferencias: string;
+
+
+    constructor(correo: string,
+        password: string,
+        nombre: string,
+        edad: number,
+        genero: string,
+        preferencias: string) {
+
+        this.correo = correo;
+        this.password = password;
+        this.nombre = nombre;
+        this.edad = edad;
+        this.genero = genero;
+        this.preferencias = preferencias;
+
+
+    }
+
 }

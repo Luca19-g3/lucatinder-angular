@@ -11,16 +11,16 @@ export class ServicioService {
 
   constructor(public http: HttpClient) { }
 
-  crearUsuario(perfil: Perfil) {
-    this.http.post(this.userUrl + "newrest", perfil);
+  obtenerPerfiles(id: number) {
+    return this.http.get(this.userUrl + "perfilesrest?id=" + id);
   }
 
-  obtenerPerfiles(id:number){
-    return this.http.get(this.userUrl + "perfilesrest?id="+id);
+  obtenerContactos(id: number) {
+    return this.http.get(this.userUrl + "contactosrest?id=" + id);
   }
 
-  obtenerContactos(id:number){
-    return this.http.get(this.userUrl + "contactosrest?id="+id);
+  crearPerfil(perfil: Perfil) {
+    return this.http.post(this.userUrl + "newrest", perfil);
   }
   
 }

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'; 
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,7 @@ import { ContactosComponent } from './componentes/contactos/contactos.component'
 import { DescartesComponent } from './componentes/descartes/descartes.component';
 import { MatchesComponent } from './componentes/matches/matches.component';
 import { ChatComponent } from './componentes/chat/chat.component';
+import { AltaPerfilComponent } from './componentes/alta-perfil/alta-perfil.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +27,15 @@ import { ChatComponent } from './componentes/chat/chat.component';
     ContactosComponent,
     DescartesComponent,
     MatchesComponent,
-    ChatComponent
+    ChatComponent,
+    AltaPerfilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ServicioService],
   bootstrap: [AppComponent]

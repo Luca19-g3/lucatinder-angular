@@ -1,0 +1,53 @@
+<form [formGroup]="formulario" (ngSubmit)="registrarUsuario()" action="index.html" class="mt-4 text-center">
+  <div class="row m-0 p-0">
+    <div class="row col-6 m-0 p-0">
+      <label for="perfil_correo" class="col-3 fs-12">Email</label>
+      <input formControlName="correo" class="form-control col-9" id="perfil_correo" type="email" maxlength="45"
+        required />
+    </div>
+    <div class="row col-6 m-0 p-0">
+      <label for="perfil_password" class="col-4 fs-12">Contraseña</label>
+      <input formControlName="password" class="form-control col-8" id="perfil_password" type="password" maxlength="16"
+        required />
+    </div>
+  </div>
+  <div class="row m-0 p-0 mt-4">
+    <div class="row col-6 m-0 p-0">
+      <label for="perfil_nombre" class="col-3 fs-12">Me llamo</label>
+      <input formControlName="nombre" class="form-control col-9" id="perfil_nombre" type="text" maxlength="45"
+        required />
+    </div>
+    <div class="row col-3 m-0 p-0">
+      <label for="perfil_genero" class="col-6 fs-12">soy</label>
+      <select formControlName="genero" class="form-control col-6" id="perfil_genero" required>
+        <option value="'M'">Hombre</option>
+        <option value="'F'">Mujer</option>
+      </select>
+    </div>
+    <div class="row col-3 m-0 p-0">
+      <label for="perfil_edad" class="col-4 fs-12">tengo</label>
+      <input formControlName="edad" class="form-control col-8" id="perfil_edad" type="number" min="18" max="90"
+        required>
+    </div>
+  </div>
+  <div class="row m-0 p-0 mt-4">
+    <div class="row col-6 m-0 p-0">
+      <label for="perfil_preferencia_sexual" class="col-3 fs-12">Busco</label>
+      <select formControlName="preferencias" class="form-control col-9" id="perfil_preferencia_sexual" required>
+        <option value="'M'">Hombre</option>
+        <option value="'F'">Mujer</option>
+      </select>
+    </div>
+    <div class="row col-3 m-0 p-0">
+      <label for="perfil_preferencia_edad_min" class="col-6 fs-12">entre</label>
+      <input class="form-control col-6" id="perfil_preferencia_edad_min" type="number" min="18" max="90" required />
+    </div>
+    <div class="row col-3 m-0 p-0">
+      <label for="perfil_preferencia_edad_min" class="col-6 fs-12 text-center">y</label>
+      <input class="form-control col-6" id="perfil_preferencia_edad_min" type="number" min="18" max="90" required>
+    </div>
+  </div>
+  <div class="row m-0 mt-4">
+    <input class="btn btn-outline-info btn-block btn-color-propio col-4 mx-auto" type="submit" value="Registrarse" />
+  </div>
+</form>
