@@ -15,7 +15,7 @@ export class DescartesComponent implements OnInit {
   constructor(public _servicio:ServicioService) { }
 
   ngOnInit() {
-    this.id = window.localStorage.getItem("id_lucatinder");
+    this.id = parseInt(window.localStorage.getItem("id_lucatinder"));
     this.obtenerPerfiles(this.id);
   }
 
