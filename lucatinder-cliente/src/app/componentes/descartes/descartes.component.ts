@@ -16,10 +16,10 @@ export class DescartesComponent implements OnInit {
 
   ngOnInit() {
     this.id = parseInt(window.localStorage.getItem("id_lucatinder"));
-    this.obtenerPerfiles(this.id);
+    this.obtenerDescartes(this.id);
   }
 
-  obtenerPerfiles(id:number){
+ obtenerDescartes(id:number){
     this._servicio.obtenerDescartes(id).subscribe((datos:Perfil[])=>{this.descartes = datos});
   }
 
