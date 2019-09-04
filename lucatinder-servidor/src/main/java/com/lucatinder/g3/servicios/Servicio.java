@@ -25,10 +25,11 @@ public interface Servicio {
 	public void crearPerfilFalso(int cantidad);
 	public ErrorPropio setMensajeCrear(String msg);
 	public List<Perfil> listaContactos(int id);
-	public void darLike(int id1, int id2);
+	public boolean darLike(int id1, int id2);
 	public Perfil getPerfilRamdom(int id);
 	public void darDislike(int id1, int id2);
 	public void bajaPerfil(int id);
 	public List<Perfil> listaDescartes(int id);
-	public void match(int id1,int id2);
+	public boolean match(int id1,int id2);
+	public boolean modificarPerfil(int id, Perfil p);
 }

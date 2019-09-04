@@ -130,6 +130,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 		logger.info("------------------" + listContacto.toString());
 		return listContacto;
 	}
+
 	/**
 	 * Metodo darLike
 	 * 
@@ -156,11 +157,11 @@ public class PerfilDAOImpl implements PerfilDAO {
 		entityManager.merge(c);
 
 	}
-	
+
 	/**
 	 * Metodo comprobar like
 	 * 
-	 
+	 * 
 	 * 
 	 * @param id de los 2 usuarios
 	 * @return leGusto boolean
@@ -173,31 +174,36 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 */
 	public boolean comprobarLike(int id1, int id2) {
 		boolean leGusto;
-	
-			logger.info("------Entrando en comprobar like, en un filo te digo si le gustas");
-			Object o = entityManager.createNativeQuery("SELECT Count(id_contacto) FROM contacto WHERE id_perfil="+id1+" AND id_like="+id2).getSingleResult();
-			String s = o.toString();
-			int num = Integer.parseInt(s);	
-			System.out.println(num);
-			System.out.println("-----------"+o);
-			if (num ==0 ) {
-				logger.info("----no, bicho");
-				leGusto = false;
-			}else if(num==1){
-				logger.info("----si, le gustas");
-				leGusto = true;
-			}else {
-				logger.warn("WARNING---------------\n Nº de campos en la tabla =  "+num+"\n Comprueva campos repetidos (nº aceptables 0,1)");
-				return true;
-			}
-			logger.info("---------------------------------------------------------------le gusto?-" + leGusto);
+
+		logger.info("------Entrando en comprobar like, en un filo te digo si le gustas");
+		Object o = entityManager
+				.createNativeQuery(
+						"SELECT Count(id_contacto) FROM contacto WHERE id_perfil=" + id1 + " AND id_like=" + id2)
+				.getSingleResult();
+		String s = o.toString();
+		int num = Integer.parseInt(s);
+		System.out.println(num);
+		System.out.println("-----------" + o);
+		if (num == 0) {
+			logger.info("----no, bicho");
+			leGusto = false;
+		} else if (num == 1) {
+			logger.info("----si, le gustas");
+			leGusto = true;
+		} else {
+			logger.warn("WARNING---------------\n Nº de campos en la tabla =  " + num
+					+ "\n Comprueva campos repetidos (nº aceptables 0,1)");
+			return true;
+		}
+		logger.info("---------------------------------------------------------------le gusto?-" + leGusto);
 		return leGusto;
 	}
 
 	/**
 	 * Metodo darDislike
 	 * 
-	 * Guarda los perfiles de un perfil que ha dado dislike y el perfil al que se lo ha dado
+	 * Guarda los perfiles de un perfil que ha dado dislike y el perfil al que se lo
+	 * ha dado
 	 * 
 	 * @param id de los 2 perfil, el Deslikeador y el Deslikeado
 	 * @version 1.0
@@ -206,10 +212,10 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 *         29/08/2019
 	 * 
 	 */
-	
+
 	@Transactional
 	@Override
-	public void darDislike(int id1, int id2)  {
+	public void darDislike(int id1, int id2) {
 		logger.info("----------------------------------------Entrando en dardislike");
 		Perfil p = getPerfil(id1);
 		Perfil p2 = getPerfil(id2);
@@ -220,35 +226,30 @@ public class PerfilDAOImpl implements PerfilDAO {
 		logger.info(d.toString());
 	}
 
-	
 	/**
 	 * Metodo getPerfilRamdom
 	 * 
 	 * selecciona un perfil ramdom
 	 * 
-	 *@return Perfil p devuelve un perfil ramdom 
+	 * @return Perfil p devuelve un perfil ramdom
 	 * @version 1.0
 	 * @author jesus
 	 * 
 	 *         29/08/2019
 	 * 
 	 */
-	
+
 	@Override
 	public Perfil getPerfilRamdom(int id) {
 		logger.info("----------------------Entrando a getPerfilRamdom.");
-		List<Perfil> list= getListaPerfil(id, 200);
+		List<Perfil> list = getListaPerfil(id, 200);
 		int idR = FakePerfiles.ramdomNumber(1, list.size());
 		Perfil p = list.get(idR);
-		p =list.get(idR);
-	
-		
-		
-		
-		return p ;
+		p = list.get(idR);
+
+		return p;
 	}
 
-	
 	/**
 	 * Metodo bajaPerfil
 	 * 
@@ -265,20 +266,21 @@ public class PerfilDAOImpl implements PerfilDAO {
 	@Transactional
 	@Override
 	public void bajaPerfil(int id) {
-		
-		
-		if(null!=getPerfil(id)){
+
+		if (null != getPerfil(id)) {
 			Perfil p = getPerfil(id);
 			entityManager.remove(p);
-		}else {
+		} else {
 			logger.warn("perfil no encontrado");
 		}
-		
+
 	}
+
 	/**
 	 * Metodo listDescartes
 	 * 
-	 * metodo para pedir la lista de los perfiles a los que el usuario ha dado dislike
+	 * metodo para pedir la lista de los perfiles a los que el usuario ha dado
+	 * dislike
 	 * 
 	 * @param la id del perfil que consulta
 	 * @return List<Perfil> Lista de todos los perfiles a los que ha dado dislike
@@ -290,20 +292,20 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 */
 	@Override
 	public List<Perfil> listaDescartes(int id) {
-			logger.info("-------------------------------------------------  Entrando a Dao listDescartes");
-			Perfil p = getPerfil(id);
-			List<Perfil> listDescartes = new ArrayList<Perfil>();
-			List descartes = p.getDescartes1();
-			for (int i = 0; i < descartes.size(); i++) {
-				Descarte d = (Descarte) descartes.get(i);
+		logger.info("-------------------------------------------------  Entrando a Dao listDescartes");
+		Perfil p = getPerfil(id);
+		List<Perfil> listDescartes = new ArrayList<Perfil>();
+		List descartes = p.getDescartes1();
+		for (int i = 0; i < descartes.size(); i++) {
+			Descarte d = (Descarte) descartes.get(i);
 
-				listDescartes.add(d.getPerfil2());
-			}
-			logger.info("------------------" + listDescartes.toString());
-			return listDescartes;
-		
+			listDescartes.add(d.getPerfil2());
+		}
+		logger.info("------------------" + listDescartes.toString());
+		return listDescartes;
+
 	}
-	
+
 	/**
 	 * Metodo listMatches
 	 * 
@@ -319,46 +321,62 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 */
 	@Override
 	public List<Perfil> listaMatches(int id) {
-			logger.info("-------------------------------------------------  Entrando a Dao listDescartes");
-			Perfil p = getPerfil(id);
-			List<Perfil> listMatches = new ArrayList<Perfil>();
-			List matches = p.getMatches2();
-			for (int i = 0; i < matches.size(); i++) {
-				Match m = (Match) matches.get(i);
+		logger.info("-------------------------------------------------  Entrando a Dao listDescartes");
+		Perfil p = getPerfil(id);
+		List<Perfil> listMatches = new ArrayList<Perfil>();
+		List matches = p.getMatches2();
+		for (int i = 0; i < matches.size(); i++) {
+			Match m = (Match) matches.get(i);
 
-				listMatches.add(m.getPerfil2());
-			}
-			logger.info("------------------" + listMatches.toString());
-			return listMatches;
-		
+			listMatches.add(m.getPerfil2());
+		}
+		logger.info("------------------" + listMatches.toString());
+		return listMatches;
+
 	}
+
 	/**
 	 * ---NO FUNCIONA--
+	 * 
 	 * @param id, perfil
 	 * @return perfil p el perfil modificado
 	 * @author jesus
 	 * 
-	 * 	04/09/2019
+	 *         04/09/2019
 	 */
 	@Transactional
 	@Override
-	public Perfil modifPerfil(int id,Perfil pnew) {
-		Perfil p = getPerfil(pnew.getId());
-		
-		p.setCorreo(pnew.getCorreo());
-		p.setNombre(pnew.getNombre());
-		entityManager.flush();
-		return p;
+	public boolean modifPerfil(int id, Perfil p) {
+		boolean cambio;
+
+		Perfil p1 = getPerfil(id);
+		try {
+			p1.setCorreo(p.getCorreo());
+			p1.setNombre(p.getNombre());
+			p1.setEdad(p.getEdad());
+			p1.setGenero(p.getGenero());
+			p1.setDescripcion(p.getDescripcion());
+			p1.setImg(p.getImg());
+			p1.setPassword(p.getPassword());
+			p.setPreferencias(p.getPreferencias());
+			entityManager.flush();
+			cambio = true;
+			return cambio;
+		} catch (Error e) {
+			cambio = false;
+			return cambio;
+		}
 	}
-	
+
 	/**
 	 * crea un match
+	 * 
 	 * @param int id1
 	 * @param int id 2
 	 * 
 	 * @author jesus
 	 * 
-	 * 	04/09/2019
+	 *         04/09/2019
 	 */
 	@Transactional
 	@Override
@@ -369,14 +387,8 @@ public class PerfilDAOImpl implements PerfilDAO {
 		Match c = new Match();
 		c.setPerfil1(p);
 		c.setPerfil2(p2);
-		
+
 		entityManager.merge(c);
 	}
-	
-	
 
 }
-
-	
-	
-	
