@@ -390,5 +390,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 
 		entityManager.merge(c);
 	}
+	
+
 
 }

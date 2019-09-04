@@ -190,12 +190,42 @@ public class ControladorRest {
 		return p;
 	}
 	
+	/**
+	 * Método login
+	 *
+	 * Metodo para entrar a la aplicacion
+	 *
+	 * @param int id1 
+	 * @param int id2
+	 * @return boolean si es true se ha creado un match y si es false no se ha creado
+	 * @version 1.0
+	 * @author Jesus
+	 *
+	 *         04/09/2019
+	 *-----hay que cambiar el return
+	 *
+	 *
+	 */
+	
 	@GetMapping(value = "/darlikerest")
-	public void darLike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
+	public boolean darLike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
 		logger.info("-----------------ejecutando dar like");
-		servicio.darLike(id1, id2);
-		
+		boolean b = servicio.darLike(id1, id2);
+		return b;
 	}
+	/**
+	 * Método login
+	 *
+	 * 
+	 *
+	 * @param int id1 
+	 * @param int id2
+	 * @version 1.0
+	 * @author Jesus
+	 *
+	 *         04/09/2019
+	 *
+	 */
 	
 	@GetMapping(value = "/dardislikerest")
 	
@@ -204,5 +234,7 @@ public class ControladorRest {
 		servicio.darDislike(id1, id2);
 		
 	}
+	
+	
 
 }
