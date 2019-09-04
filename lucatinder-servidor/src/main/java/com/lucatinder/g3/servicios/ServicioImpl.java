@@ -210,6 +210,8 @@ public class ServicioImpl implements Servicio {
 	 */
 	@Override
 	public void darLike(int id1, int id2) {
+		logger.info("------- entrando en dar like");
+		 match(id1, id2) ;
 		perfilDao.darLike(id1, id2);
 		
 	}
@@ -290,6 +292,7 @@ public class ServicioImpl implements Servicio {
 	 * @param int id1
 	 * @param int id2
 	 * @version 1.0
+	 * @author jorge
 	 * @author jesus
 	 * 
 	 *         04/09/2019
@@ -297,7 +300,13 @@ public class ServicioImpl implements Servicio {
 	 */
 	@Override
 	public void match(int id1, int id2) {
-		// TODO Auto-generated method stub
+		logger.info("------------entrando en match,servicios");
+		if(perfilDao.comprobarLike(id1, id2)==true) {
+			logger.info("----------hay match ");
+			perfilDao.match(id1, id2);
+		}else {
+			logger.info("----------------no hay match...todavia");
+		}
 		
 	}
 		
