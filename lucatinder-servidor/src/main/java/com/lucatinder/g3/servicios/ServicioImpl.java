@@ -331,8 +331,7 @@ public class ServicioImpl implements Servicio {
 	 */
 	@Override
 	public boolean modificarPerfil(int id, Perfil p) {
-
-		return false;
+		return perfilDao.modifPerfil(id, p);
 	}
 		
 	
