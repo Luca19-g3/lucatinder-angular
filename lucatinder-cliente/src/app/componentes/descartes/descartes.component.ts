@@ -10,11 +10,12 @@ import { ServicioService } from 'src/app/servicio/servicio.service';
 export class DescartesComponent implements OnInit {
 
   descartes:Perfil[];
-  id: number = 1;
+  id: number;
 
   constructor(public _servicio:ServicioService) { }
 
   ngOnInit() {
+    this.id = window.localStorage.getItem("id_lucatinder");
     this.obtenerPerfiles(this.id);
   }
 
