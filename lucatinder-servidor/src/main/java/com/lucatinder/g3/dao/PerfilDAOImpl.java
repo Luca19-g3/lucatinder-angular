@@ -333,6 +333,17 @@ public class PerfilDAOImpl implements PerfilDAO {
 		
 	}
 	
+	@Transactional
+	@Override
+	public Perfil modifPerfil(int id,Perfil pnew) {
+		Perfil p = getPerfil(pnew.getId());
+		
+		p.setCorreo(pnew.getCorreo());
+		p.setNombre(pnew.getNombre());
+		entityManager.flush();
+		return p;
+	}
+	
 	
 
 }

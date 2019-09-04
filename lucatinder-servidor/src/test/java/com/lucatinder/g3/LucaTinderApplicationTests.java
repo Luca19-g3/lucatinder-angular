@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,8 +28,8 @@ public class LucaTinderApplicationTests {
 	@Test
 	public void contextLoads() {
 		
-		getPerfilRamdom();
 		
+		pmodificarp();
 	}
 	
 	/**
@@ -56,10 +57,10 @@ public class LucaTinderApplicationTests {
 	 
 	 public static void probadorFakeArrayPerfiles() {
 		 
-		ArrayList<Perfil> listPerfil = new ArrayList<Perfil>();
+		List<Perfil> listPerfil = new ArrayList<Perfil>();
 		
 		 
-	/*	listPerfil = FakePerfiles.perfilesRamdom(20); */
+		listPerfil = FakePerfiles.perfilesRamdom(20); 
 		
 		listPerfil.toString();
 		 assertEquals(20, listPerfil.size());
@@ -97,6 +98,16 @@ public class LucaTinderApplicationTests {
 	 }
 	 public void getPerfilRamdom() {
 		 perfil.getPerfilRamdom(1);
+	 }
+	 
+	 public void pmodificarp() {
+		 
+		Perfil p = perfil.getPerfil(41);
+		p.setNombre("pepe");
+		perfil.modifPerfil(41,p); 
+		Perfil pa = perfil.getPerfil(41);
+		 System.out.println("p2---------------------"+p.toString());
+		 assertEquals(p.getNombre(),pa.getNombre());
 	 }
 	 
 }
