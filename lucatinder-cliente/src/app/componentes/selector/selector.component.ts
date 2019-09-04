@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Perfil } from 'src/app/modelo/perfil';
 import { ServicioService } from 'src/app/servicio/servicio.service';
 import {Router} from '@angular/router';
+import { componentRefresh } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-selector',
@@ -45,8 +46,8 @@ export class SelectorComponent implements OnInit {
       });
       
     }
-  
-      this.refresh();
+  componentRefresh.apply
+      //this.refresh();
   
   }
 
