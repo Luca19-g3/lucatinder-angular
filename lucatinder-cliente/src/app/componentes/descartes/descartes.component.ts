@@ -20,7 +20,7 @@ export class DescartesComponent implements OnInit {
   }
 
   obtenerPerfiles(id:number){
-    this._servicio.listaPerfiles(id).subscribe((datos:Perfil[])=>{this.descartes = datos});
+    this._servicio.obtenerDescartes(id).subscribe((datos:Perfil[])=>{this.descartes = datos});
   }
 
 }
