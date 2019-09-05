@@ -15,7 +15,6 @@ import com.lucatinder.g3.modelo.ErrorPropio;
 import com.lucatinder.g3.modelo.Perfil;
 import com.lucatinder.g3.utilidades.FakePerfiles;
 
-
 /**
  * Clase ServicioImpl
  * 
@@ -77,6 +76,7 @@ public class ServicioImpl implements Servicio {
 		logger.info("Ejecutando el metodo getPerfil en la clase ServicioImpl");
 		return perfilDao.getPerfil(id);
 	}
+
 	/**
 	 * Metodo setError
 	 * 
@@ -97,9 +97,6 @@ public class ServicioImpl implements Servicio {
 		return error;
 	}
 
-	
-
-
 	/**
 	 * Metodo getListaPerfil
 	 * 
@@ -116,60 +113,57 @@ public class ServicioImpl implements Servicio {
 	 * 
 	 */
 	@Override
-	 public List<Perfil> getListaPerfil(int id, int longitud) {
-        logger.info("Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
-        List<Perfil> listPerfil = perfilDao.getListaPerfil(id, longitud);
-        if (listPerfil.size()==longitud ) {
-            return listPerfil;
-        } else {
-            crearPerfilFalso(longitud);
-            listPerfil = perfilDao.getListaPerfil(id, longitud);
-            return listPerfil;
-        }
-        
-        
-        
-    }
-
+	public List<Perfil> getListaPerfil(int id, int longitud) {
+		logger.info("Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
+		List<Perfil> listPerfil = perfilDao.getListaPerfil(id, longitud);
+			return listPerfil;
 		
-	
-	  /**
-	   * Metodo crearPerfilFalso
-	   * 
-	   * crea una lissta de diversos perfiles falsos
-	   * 
-	   * @param int cantidad Nº de perfiles que crea
-	   * @version 1.0
-	   * @author Jesus
-	   * 
-	   *     28/08/2019
-	   * 
-	   */
-	  
-	  @Override
-	  public void crearPerfilFalso(int cantidad) {
-	    logger.info("Ejecutando el metodo CrearPerfilFalso en la clase ServicioImpl");
-	     List<Perfil> listPerfil =FakePerfiles.perfilesRamdom(cantidad);
-	    
-	    for (int i = 0; i < listPerfil.size(); i++) {
-	      Perfil p = newPerfil(listPerfil.get(i));
-	    }
-	    
-	    
-	  }
-		/**
-		 * Metodo setMensajeCrear
-		 * 
-		 * Metodo para mandar un mensaje
-		 * 
-		 * @param String msg Mensaje que muestra
-		 * @return Error error
-		 * @version 1.0
-		 * @author Jorge
-		 * 
-		 *         27/08/2019
-		 * 
-		 */
+//        else {
+//            crearPerfilFalso(longitud);
+//            listPerfil = perfilDao.getListaPerfil(id, longitud);
+//            return listPerfil;
+//        }
+//        
+
+	}
+
+	/**
+	 * Metodo crearPerfilFalso
+	 * 
+	 * crea una lissta de diversos perfiles falsos
+	 * 
+	 * @param int cantidad Nº de perfiles que crea
+	 * @version 1.0
+	 * @author Jesus
+	 * 
+	 *         28/08/2019
+	 * 
+	 */
+
+	@Override
+	public void crearPerfilFalso(int cantidad) {
+		logger.info("Ejecutando el metodo CrearPerfilFalso en la clase ServicioImpl");
+		List<Perfil> listPerfil = FakePerfiles.perfilesRamdom(cantidad);
+
+		for (int i = 0; i < listPerfil.size(); i++) {
+			Perfil p = newPerfil(listPerfil.get(i));
+		}
+
+	}
+
+	/**
+	 * Metodo setMensajeCrear
+	 * 
+	 * Metodo para mandar un mensaje
+	 * 
+	 * @param String msg Mensaje que muestra
+	 * @return Error error
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         27/08/2019
+	 * 
+	 */
 	@Override
 	public ErrorPropio setMensajeCrear(String msg) {
 		error.setMensajeCreada(msg);
@@ -182,7 +176,7 @@ public class ServicioImpl implements Servicio {
 	 * Metodo para listar los perfiles a los que un perfil a dado a like
 	 * 
 	 * @param int id ,del perfil a consultar
-	 * @return  lista de los contactos
+	 * @return lista de los contactos
 	 * @version 1.0
 	 * @author Jesus
 	 * 
@@ -191,9 +185,10 @@ public class ServicioImpl implements Servicio {
 	 */
 	@Override
 	public List<Perfil> listaContactos(int id) {
-		
+
 		return perfilDao.listaContactos(id);
 	}
+
 	/**
 	 * Metodo darLikes
 	 * 
@@ -201,7 +196,7 @@ public class ServicioImpl implements Servicio {
 	 * 
 	 * @param int id1 ,del perfil que da like
 	 * @param int id2, id del perfil al que se le da like
-	 * @return  void
+	 * @return void
 	 * @version 1.0
 	 * @author Jorge
 	 * 
@@ -211,26 +206,25 @@ public class ServicioImpl implements Servicio {
 	@Override
 	public boolean darLike(int id1, int id2) {
 		logger.info("------- entrando en dar like");
-		
+
 		perfilDao.darLike(id1, id2);
-		 boolean b = match(id1, id2);
-		 return b;
-		
-		
+		boolean b = match(id1, id2);
+		return b;
+
 	}
+
 	/**
-	 * @param id del perfil para que no se incluya en 
-	 * @return Perfil p perfil seleccionado aleatoriamente entre todos nuestros usuarios
+	 * @param id del perfil para que no se incluya en
+	 * @return Perfil p perfil seleccionado aleatoriamente entre todos nuestros
+	 *         usuarios
 	 * @author jesus
 	 */
 	@Override
 	public Perfil getPerfilRamdom(int id) {
-		
+
 		return perfilDao.getPerfilRamdom(id);
 	}
 
-
-	
 	/**
 	 * Metodo darDisLikes
 	 * 
@@ -238,7 +232,7 @@ public class ServicioImpl implements Servicio {
 	 * 
 	 * @param int id1 ,del perfil que da like
 	 * @param int id2, id del perfil al que se le da disLike
-	 * @return  void
+	 * @return void
 	 * @version 1.0
 	 * @author Jorge
 	 * 
@@ -248,15 +242,16 @@ public class ServicioImpl implements Servicio {
 	@Override
 	public void darDislike(int id1, int id2) {
 		perfilDao.darDislike(id1, id2);
-		
+
 	}
+
 	/**
 	 * Metodo bajaPerfil()
 	 * 
 	 * Metodo para dar de baja un perfil
 	 * 
 	 * @param int id ,del perfil a dar de baja
-	 * @return  void
+	 * @return void
 	 * @version 1.0
 	 * @author Jesus
 	 * 
@@ -266,15 +261,16 @@ public class ServicioImpl implements Servicio {
 	@Override
 	public void bajaPerfil(int id) {
 		perfilDao.bajaPerfil(id);
-		
+
 	}
+
 	/**
 	 * Metodo listaContactos
 	 * 
 	 * Metodo para listar los perfiles a los que un perfil se ha dado dislike
 	 * 
 	 * @param int id ,del perfil que consulta
-	 * @return  lista de los descartes
+	 * @return lista de los descartes
 	 * @version 1.0
 	 * @author Jorge
 	 * 
@@ -283,10 +279,9 @@ public class ServicioImpl implements Servicio {
 	 */
 	@Override
 	public List<Perfil> listaDescartes(int id) {
-	return perfilDao.listaDescartes(id);
+		return perfilDao.listaDescartes(id);
 	}
 
-	
 	/**
 	 * Metodo match
 	 * 
@@ -304,22 +299,23 @@ public class ServicioImpl implements Servicio {
 	@Override
 	public boolean match(int id1, int id2) {
 		logger.info("------------entrando en match,servicios");
-		if(perfilDao.comprobarLike(id1, id2)==true) {
+		if (perfilDao.comprobarLike(id1, id2) == true) {
 			logger.info("----------hay match ");
 			perfilDao.match(id1, id2);
 			return true;
-		}else {
+		} else {
 			logger.info("----------------no hay match...todavia");
 			return false;
 		}
-		
+
 	}
+
 	/**
 	 * Metodo modificarPerfil
 	 * 
 	 * modifica el perfil
 	 * 
-	 * @param int id1 - del usuario que se van a cambiar los datos
+	 * @param        int id1 - del usuario que se van a cambiar los datos
 	 * @param Perfil p - objeto perfil con los datos del usuario
 	 * @return boolean - true si el cambio se ha efectuado, false si no
 	 * @version 1.0
@@ -333,13 +329,14 @@ public class ServicioImpl implements Servicio {
 	public boolean modificarPerfil(int id, Perfil p) {
 		return perfilDao.modifPerfil(id, p);
 	}
+
 	/**
 	 * Metodo listaMatches
 	 * 
 	 * Metodo para listar los perfiles los que un perfil tiene Match
 	 * 
 	 * @param int id ,del perfil que consulta
-	 * @return  lista de los matches
+	 * @return lista de los matches
 	 * @version 1.0
 	 * @author Jorge
 	 * 
@@ -350,7 +347,5 @@ public class ServicioImpl implements Servicio {
 	public List<Perfil> listarMatches(int id) {
 		return perfilDao.listaMatches(id);
 	}
-		
-	
 
 }

@@ -89,7 +89,7 @@ public class PerfilDAOImpl implements PerfilDAO {
 	/**
 	 * Metodo getListaPerfil
 	 * 
-	 * Metodo para obtener una lista de usuarios con id distinto del id dado y
+	 * Metodo para obtener una lista de usuarios con id distinto del perfil que logea dado y
 	 * longitud definida
 	 * 
 	 * @param int id Id del perfil a evitar en la lista de usuarios
@@ -107,19 +107,11 @@ public class PerfilDAOImpl implements PerfilDAO {
 	@Transactional
 	public List<Perfil> getListaPerfil(int id, int longitud) {
 		logger.info("Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
-		String hql = "FROM Perfil WHERE id != " + id + "and genero ='"+ getPerfil(id).getGenero()+"'";
+		String hql = "FROM Perfil WHERE id != " + id + "and genero ='"+ getPerfil(id).getPreferencias()+"'";
 		return (List<Perfil>) entityManager.createQuery(hql).setMaxResults(longitud).getResultList();
 	}
 
-//	   @SuppressWarnings("unchecked")
-//	    @Override
-//	    @Transactional
-//	    public List<Perfil> getListaPerfil(int id, int longitud) {
-//	        logger.info("----------------------------Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
-//	        String hql = "FROM Perfil WHERE id !=:idPerfil AND genero =: gen";
-//	        Perfil p = getPerfil(id);
-//	        return (List<Perfil>) entityManager.createQuery(hql).setParameter("idPerfil", id).setParameter("gen", p.getPreferencias()).setMaxResults(longitud).getResultList();
-//	    }
+
 	/**
 	 * Metodo listContactos
 	 * 
