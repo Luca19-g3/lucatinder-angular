@@ -107,10 +107,19 @@ public class PerfilDAOImpl implements PerfilDAO {
 	@Transactional
 	public List<Perfil> getListaPerfil(int id, int longitud) {
 		logger.info("Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
-		String hql = "FROM Perfil WHERE id != " + id;
+		String hql = "FROM Perfil WHERE id != " + id + "and genero ='"+ getPerfil(id).getGenero()+"'";
 		return (List<Perfil>) entityManager.createQuery(hql).setMaxResults(longitud).getResultList();
 	}
 
+//	   @SuppressWarnings("unchecked")
+//	    @Override
+//	    @Transactional
+//	    public List<Perfil> getListaPerfil(int id, int longitud) {
+//	        logger.info("----------------------------Ejecutando el metodo getListaPerfil en la clase ServicioImpl");
+//	        String hql = "FROM Perfil WHERE id !=:idPerfil AND genero =: gen";
+//	        Perfil p = getPerfil(id);
+//	        return (List<Perfil>) entityManager.createQuery(hql).setParameter("idPerfil", id).setParameter("gen", p.getPreferencias()).setMaxResults(longitud).getResultList();
+//	    }
 	/**
 	 * Metodo listContactos
 	 * 
