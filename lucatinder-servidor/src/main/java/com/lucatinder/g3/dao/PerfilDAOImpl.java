@@ -273,13 +273,15 @@ public class PerfilDAOImpl implements PerfilDAO {
 	 */
 	@Transactional
 	@Override
-	public void bajaPerfil(int id) {
+	public boolean bajaPerfil(int id) {
 
 		if (null != getPerfil(id)) {
 			Perfil p = getPerfil(id);
 			entityManager.remove(p);
+			return true;
 		} else {
 			logger.warn("perfil no encontrado");
+			return false;
 		}
 
 	}

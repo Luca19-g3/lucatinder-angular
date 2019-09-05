@@ -1,5 +1,13 @@
 <app-menu></app-menu>
 
+<div class="alert alert-info alert-dismissible fade show col-12 col-md-6 mx-md-auto"
+  [ngStyle]="{'display' : display_info_modificacion}" role="alert">
+  <strong>Perfil modificado correctamente.</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <form [formGroup]="formulario" class="my-4 py-4">
   <div class="row p-0 m-0 col-12">
 

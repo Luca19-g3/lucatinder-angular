@@ -13,10 +13,13 @@ export class PerfilPropioComponent implements OnInit {
 
   formulario: FormGroup;
   perfil: Perfil;
+  display_info_modificacion:string;
 
   constructor(private _servicio: ServicioService, private ruta: Router) { }
 
   ngOnInit() {
+    this.display_info_modificacion = "none";
+
     this.formulario = new FormGroup({
       correo: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, Validators.required),
@@ -54,7 +57,11 @@ export class PerfilPropioComponent implements OnInit {
       this.formulario.value.descripcion,
       this.formulario.value.img,
       );
-    this._servicio.actualizarPerfil(this.perfil).subscribe((respuesta:boolean) => {console.log(respuesta)});
+    this._servicio.actualizarPerfil(this.perfil).subscribe((respuesta:boolean) => {
+      if(respuesta){
+        this.display_info_modificacion = "block";
+      }
+      });
   }
 
   borrarPerfil() {
