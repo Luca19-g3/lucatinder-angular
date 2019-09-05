@@ -9,8 +9,8 @@ import { ServicioService } from 'src/app/servicio/servicio.service';
 })
 export class ContactosComponent implements OnInit {
 
-  contactos: Perfil[]=[];
-id:number;
+  contactos: Perfil[] = [];
+  id: number;
   constructor(public _servicio: ServicioService) { }
 
   ngOnInit() {

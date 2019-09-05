@@ -13,6 +13,7 @@ export class SelectorComponent implements OnInit {
 
   contacto: Perfil = null;
   id: number;
+  match: boolean;
 
   constructor(private _service: ServicioService, private router: Router) {
 
@@ -32,12 +33,13 @@ export class SelectorComponent implements OnInit {
     console.log("entrando en calificar");
     if (like) {
 
-
+      //datos: Perfil[]) => { this.matches = datos }
       console.log("IT'S A LIKE!!!!");
-      this._service.darlike(this.id, this.contacto.id).subscribe(respuesta => {
-        console.error("-.-", respuesta);
-
+      this._service.darlike(this.id, this.contacto.id).subscribe((respuesta: boolean) => {
+        this.match = respuesta
+        console.log(respuesta)
       });
+
     } else {
       console.log("IT'S A DISLIKE :(((((");
       this._service.dardislike(this.id, this.contacto.id).subscribe(respuesta => {
