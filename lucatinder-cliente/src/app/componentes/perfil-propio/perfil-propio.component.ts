@@ -28,16 +28,22 @@ export class PerfilPropioComponent implements OnInit {
       img: new FormControl(null, Validators.required)
     });
 
-    this._servicio.obtenerPerfil(parseInt(localStorage.getItem("id_lucatinder"))).subscribe((respuesta: Perfil) => { this.perfil = respuesta });
+    this._servicio.obtenerPerfil(parseInt(localStorage.getItem("id_lucatinder"))).subscribe((respuesta: Perfil) => {
+      this.perfil = respuesta;
+      if (this.perfil.correo) this.formulario.controls['correo'].setValue(this.perfil.correo);
+      if (this.perfil.password) this.formulario.controls['password'].setValue(this.perfil.password);
+      if (this.perfil.nombre) this.formulario.controls['nombre'].setValue(this.perfil.nombre);
+      if (this.perfil.edad) this.formulario.controls['edad'].setValue(this.perfil.edad);
+      if (this.perfil.genero) this.formulario.controls['genero'].setValue(this.perfil.genero);
+      if (this.perfil.preferencias) this.formulario.controls['preferencias'].setValue(this.perfil.preferencias);
+      if (this.perfil.descripcion) this.formulario.controls['descripcion'].setValue(this.perfil.descripcion);
+      if (this.perfil.img) this.formulario.controls['img'].setValue(this.perfil.img);
+    });
 
-    if (this.perfil.correo) this.formulario.controls['correo'].setValue(this.perfil.correo);
-    if (this.perfil.password) this.formulario.controls['password'].setValue(this.perfil.password);
-    if (this.perfil.nombre) this.formulario.controls['nombre'].setValue(this.perfil.nombre);
-    if (this.perfil.edad) this.formulario.controls['edad'].setValue(this.perfil.edad);
-    if (this.perfil.genero) this.formulario.controls['genero'].setValue(this.perfil.genero);
-    if (this.perfil.preferencias) this.formulario.controls['preferencias'].setValue(this.perfil.preferencias);
-    if (this.perfil.descripcion) this.formulario.controls['descripcion'].setValue(this.perfil.descripcion);
-    if (this.perfil.img) this.formulario.controls['img'].setValue(this.perfil.img);
+  }
+
+  async cargarUsuario() {
+    await this._servicio.obtenerPerfil(parseInt(localStorage.getItem("id_lucatinder"))).subscribe((respuesta: Perfil) => { this.perfil = respuesta; console.log(respuesta) });
   }
 
   guardarUsuario() {
@@ -57,6 +63,11 @@ export class PerfilPropioComponent implements OnInit {
 
   borrarUsuario() {
     this._servicio.bajaPerfil(this.perfil.id).subscribe();
+    localStorage.removeItem("id_lucatinder");
+    this.ruta.navigate(["/"]);
+  }
+
+  salir(){
     localStorage.removeItem("id_lucatinder");
     this.ruta.navigate(["/"]);
   }
