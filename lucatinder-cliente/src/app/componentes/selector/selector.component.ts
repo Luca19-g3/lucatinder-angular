@@ -13,7 +13,7 @@ export class SelectorComponent implements OnInit {
 
   contacto: Perfil = null;
   id: number;
-  match: boolean;
+  match: String = window.localStorage.getItem("match");
 
   constructor(private _service: ServicioService, private router: Router) {
 
@@ -36,8 +36,9 @@ export class SelectorComponent implements OnInit {
       //datos: Perfil[]) => { this.matches = datos }
       console.log("IT'S A LIKE!!!!");
       this._service.darlike(this.id, this.contacto.id).subscribe((respuesta: boolean) => {
-        this.match = respuesta
-        console.log(respuesta)
+        this.match = respuesta;
+        console.log("El match es " ,respuesta);
+      window.localStorage.setItem("match", this.match.toString())
       });
 
     } else {
