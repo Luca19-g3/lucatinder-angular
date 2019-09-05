@@ -95,8 +95,8 @@ public class FakePerfiles {
 	/** ramdomNumber
 	 * 
 	 * debuelve un numero aleatorio
-	 * @param min_num
-	 * @param max_num
+	 * @param min_num  valor minimo
+	 * @param max_num valor maximo
 	 * @return ramdom number
 	 * @author jesus
 	 * 28/08/2019
@@ -127,7 +127,7 @@ public class FakePerfiles {
 	        }else if(sex.equals("F")) {
 	            
 	            
-	        return "https://source.unsplash.com/random/900%C3%97700/?woman";
+	        return "https://los40mx00.epimg.net/los40/imagenes/2017/04/19/moda/1492632196_480234_1492632619_noticia_normal.jpg";
 	        }else{
 	            
 	        return null ;
