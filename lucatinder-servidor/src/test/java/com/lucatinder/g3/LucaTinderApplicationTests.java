@@ -28,12 +28,14 @@ public class LucaTinderApplicationTests {
 	@Test
 	public void contextLoads() {
 		
-		
+		pruebaLike();
+		probadorFakerPerfil();
+		probadorFakerPerfil();
 		pmodificarp();
 	}
 	
 	/**
-	 * pruevas del javafaker crear 1 perfil ramdom
+	 * pruebas del javafaker crear 1 perfil ramdom
 	 * @author jesus
 	 */
 	
@@ -51,7 +53,7 @@ public class LucaTinderApplicationTests {
 		 }
 	 
 		/**
-		 * pruevas del javafaker crear 20 perfiles falsos
+		 * pruebas del javafaker crear 20 perfiles falsos
 		 * @author jesus
 		 */
 	 
