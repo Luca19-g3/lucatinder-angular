@@ -38,6 +38,7 @@ export class AltaPerfilComponent implements OnInit {
 
     this._servicio.crearPerfil(this.perfil).subscribe((respuesta: Perfil) => {
       console.log(respuesta);
+      alert("Te has registrado correctamente");
     });
   }
 
