@@ -58,7 +58,7 @@ export class PerfilPropioComponent implements OnInit {
   }
 
   borrarPerfil() {
-    this._servicio.bajaPerfil(this.perfil.id).subscribe();
+    this._servicio.bajaPerfil(this.perfil.id).subscribe(respuesta => {console.log(respuesta)});
     localStorage.removeItem("id_lucatinder");
     this.ruta.navigate(["/"]);
   }
