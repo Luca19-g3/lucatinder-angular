@@ -4,29 +4,10 @@
         <h1 class="text-center py-5 mb-0">Has tenido un <span class="color-propio font-weigh-bold">match</span> ve a <a routerLink="/matches"><span><i class="fas fa-grin-hearts color-propio"></i></span></a> para verlo.</h1>
       </div>
 
-<div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
 <div class="d-flex align-items-center my-5">
     <div class="card col-12 col-md-10 col-lg-8 col-xl-6 mx-auto p-3">
         <div class="card-head pb-0">
-            <img src="https://image.freepik.com/foto-gratis/chica-posando-gafas-sol_1153-1985.jpg"
+            <img src="{{contacto.img}}"
                 class="card-img-top" alt="Imagen de un perfil">
         </div>
         <div class="p-0 d-flex justify-content-around fila-iconos-selector">
@@ -38,7 +19,6 @@
                 <h2 class="card-title col-6 text-left">{{contacto.nombre}}</h2>
                 <h3 class="card-title col-6 text-right">{{contacto.edad}} años</h3>
             </div>
- 
         </div>
     </div>
 </div>
