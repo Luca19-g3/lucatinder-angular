@@ -42,11 +42,17 @@ export class ServicioService {
   dardislike(id1: number,id2: number){
    return this.http.get(this.userUrl + "dardislikerest?id1=" + id1 + "&id2="+id2);
   }
+
   darlike(id1: number,id2: number){
    return this.http.get(this.userUrl + "darlikerest?id1=" + id1 + "&id2="+id2);
   }
+
   listaMatches(id: number) {
     return this.http.get(this.userUrl + "listarmatchesrest?id=" + id);
+  }
+
+  bajaPerfil(id:number){
+    return this.http.get(this.userUrl + "bajaperfilrest?id=" + id);
   }
 
 }

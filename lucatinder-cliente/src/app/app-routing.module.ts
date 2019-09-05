@@ -8,6 +8,7 @@ import { MatchesComponent } from './componentes/matches/matches.component';
 import { ChatComponent } from './componentes/chat/chat.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { SelectorComponent } from './componentes/selector/selector.component';
+import { PerfilPropioComponent } from './componentes/perfil-propio/perfil-propio.component';
 
 const routes: Routes = [
   {
@@ -48,7 +49,7 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
-    component: ListadoComponent
+    component: PerfilPropioComponent
   },
   {
     path: 'perfil/:id',
