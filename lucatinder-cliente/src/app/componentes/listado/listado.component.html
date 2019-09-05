@@ -1,5 +1,9 @@
 <app-menu></app-menu>
 
+<div class="container-fluid p-0 contenedor-titulo">
+    <h1 class="text-center py-5 mb-0"><span class="color-propio">¡Hola {{usuario.nombre}}!</span><span class="h3"> Tu id es {{usuario.id}}</span><br><span class="h2">Echa un vistazo a estos perfiles</span></h1>
+</div>
+
 <div class="container p-0">
     <div class="d-flex flex-row flex-wrap p-0 m-0 pt-lg-5">
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let perfil of perfiles">
