@@ -53,7 +53,9 @@ public class PerfilDAOImpl implements PerfilDAO {
 
 	@Override
 	public Perfil newPerfil(Perfil p) {
-		logger.info("Ejecutando el metodo newPerfil en la clase PerfilDAOImpl");
+		logger.info("-------Ejecutando el metodo newPerfil en la clase PerfilDAOImpl");
+		 String f =FakePerfiles.ramdomPhoto(p.getGenero());
+		p.setImg(f);
 		entityManager.merge(p);
 		return p;
 	}
