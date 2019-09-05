@@ -166,6 +166,7 @@ public class ControladorRest {
 	@GetMapping(value = "/descartesrest")
 	public List<Perfil> obtenerDescartesRest(@RequestParam("id") int id) {
 		logger.info("-----Ejecutando el metodo obtenerDescartesRest en la clase ControladorRest");
+		logger.info("----------------------------"+servicio.listaDescartes(id));
 		return servicio.listaDescartes(id);
 	
 	}

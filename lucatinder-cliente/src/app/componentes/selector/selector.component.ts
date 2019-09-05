@@ -36,7 +36,7 @@ export class SelectorComponent implements OnInit {
       //datos: Perfil[]) => { this.matches = datos }
       console.log("IT'S A LIKE!!!!");
       this._service.darlike(this.id, this.contacto.id).subscribe((respuesta: boolean) => {
-        this.match = respuesta;
+        this.match = respuesta.toString();
         console.log("El match es " ,respuesta);
       window.localStorage.setItem("match", this.match.toString())
       });
