@@ -28,7 +28,6 @@ export class AltaPerfilComponent implements OnInit {
   }
 
   registrarUsuario() {
-
     this.perfil = new Perfil(
       this.formulario.value.correo,
       this.formulario.value.password,
