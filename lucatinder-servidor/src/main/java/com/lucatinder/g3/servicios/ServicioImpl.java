@@ -333,6 +333,23 @@ public class ServicioImpl implements Servicio {
 	public boolean modificarPerfil(int id, Perfil p) {
 		return perfilDao.modifPerfil(id, p);
 	}
+	/**
+	 * Metodo listaMatches
+	 * 
+	 * Metodo para listar los perfiles los que un perfil tiene Match
+	 * 
+	 * @param int id ,del perfil que consulta
+	 * @return  lista de los matches
+	 * @version 1.0
+	 * @author Jorge
+	 * 
+	 *         05/09/2019
+	 * 
+	 */
+	@Override
+	public List<Perfil> listarMatches(int id) {
+		return perfilDao.listaMatches(id);
+	}
 		
 	
 

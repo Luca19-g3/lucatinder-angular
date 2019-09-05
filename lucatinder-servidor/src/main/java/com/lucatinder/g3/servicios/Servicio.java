@@ -32,4 +32,5 @@ public interface Servicio {
 	public List<Perfil> listaDescartes(int id);
 	public boolean match(int id1,int id2);
 	public boolean modificarPerfil(int id, Perfil p);
+	public List<Perfil> listarMatches(int id);
 }

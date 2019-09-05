@@ -324,11 +324,17 @@ public class PerfilDAOImpl implements PerfilDAO {
 		logger.info("-------------------------------------------------  Entrando a Dao listDescartes");
 		Perfil p = getPerfil(id);
 		List<Perfil> listMatches = new ArrayList<Perfil>();
-		List matches = p.getMatches2();
+		List matches = p.getMatches1();
+		List matches2 = p.getMatches2();
 		for (int i = 0; i < matches.size(); i++) {
 			Match m = (Match) matches.get(i);
 
 			listMatches.add(m.getPerfil2());
+		}
+		
+		for (int i = 0; i < matches2.size(); i++) {
+			Match m =(Match) matches2.get(i);
+			listMatches.add(m.getPerfil1());
 		}
 		logger.info("------------------" + listMatches.toString());
 		return listMatches;
@@ -390,6 +396,8 @@ public class PerfilDAOImpl implements PerfilDAO {
 
 		entityManager.merge(c);
 	}
+
+
 	
 
 

@@ -214,7 +214,7 @@ public class ControladorRest {
 		return b;
 	}
 	/**
-	 * Método login
+	 * Método darDisLike
 	 *
 	 * 
 	 *
@@ -234,7 +234,25 @@ public class ControladorRest {
 		servicio.darDislike(id1, id2);
 		
 	}
+	/**
+	 * Método darDisLike
+	 *
+	 * 
+	 *
+	 * @param int id1 
+	 * 
+	 * @version 1.0
+	 * @author Jorge
+	 * @return List<Perfil> - Lista de los perfiles con los que tiene match
+	 *         05/09/2019
+	 *
+	 */
 	
+	@GetMapping(value = "/listarmatchesrest")
+	public List<Perfil> listarMatches(@RequestParam("id") int id) {
+		logger.info("-----Ejecutando el metodo ListarMatches en la clase ControladorRest");
+		return servicio.listarMatches(id);
+	}
 	
 
 }
