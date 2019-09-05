@@ -19,39 +19,25 @@ export class SelectorComponent implements OnInit {
 
   }
 
-
   ngOnInit() {
     this.id = parseInt(window.localStorage.getItem("id_lucatinder"));
-
     this._service.obtenerPerfilAleatorio(this.id).subscribe(respuesta => {
-      console.error("-.-", respuesta);
       this.contacto = respuesta;
     });
   }
 
   calificar(like: boolean) {
-    console.log("entrando en calificar");
     if (like) {
-
-      //datos: Perfil[]) => { this.matches = datos }
-      console.log("IT'S A LIKE!!!!");
       this._service.darlike(this.id, this.contacto.id).subscribe((respuesta: boolean) => {
         this.match = respuesta.toString();
-        console.log("El match es " ,respuesta);
-      window.localStorage.setItem("match", this.match.toString())
+        window.localStorage.setItem("match", this.match.toString())
       });
-
     } else {
-      console.log("IT'S A DISLIKE :(((((");
       this._service.dardislike(this.id, this.contacto.id).subscribe(respuesta => {
-        console.error("-.-", respuesta);
-
       });
-
     }
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
       this.router.navigate(["/selector"]));
-
   }
 
   refresh(): void {
