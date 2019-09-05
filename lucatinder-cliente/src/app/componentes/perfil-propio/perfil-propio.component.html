@@ -1,3 +1,68 @@
-<p>
-  perfil-propio works!
-</p>
+<app-menu></app-menu>
+
+<form [formGroup]="formulario" (ngSubmit)="registrarUsuario()" action="index.html" class="my-4 py-4">
+  <div class="row p-0 m-0 col-12">
+
+    <div class="col-12 col-lg-6 d-flex align-items-center">
+      <img src="https://media.metrolatam.com/2018/08/23/mujer1-234853dc0e0619b7be7317871413304c-1200x600.jpg"
+        alt="Foto de perfil" class="img-fluid col-12 p-0">
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <div class="col-12 form-group pt-5 pb-1 py-lg-1 px-0">
+        <label for="perfil_correo" class="col-12 pb-1">Email</label>
+        <input formControlName="correo" class="form-control col-12" id="perfil_correo" type="email" maxlength="45"
+          required />
+      </div>
+      <div class="col-12 form-group py-1 px-0">
+        <label for="perfil_password" class="col-12 pb-1">Contraseña</label>
+        <input formControlName="password" class="form-control col-12" id="perfil_password" type="password"
+          maxlength="16" required />
+      </div>
+      <div class="col-12 form-group py-1 px-0">
+        <label for="perfil_nombre" class="col-12 pb-1">Nombre</label>
+        <input formControlName="nombre" class="form-control col-12" id="perfil_nombre" type="text" maxlength="45"
+          required />
+      </div>
+      <div class="row col-12 m-0 p-0 ">
+        <div class="col-12 col-lg-4 form-group py-1 px-0 pr-1">
+          <label for="perfil_genero" class="col-12 pb-1">Sexo</label>
+          <select formControlName="genero" class="form-control col-12" id="perfil_genero" required>
+            <option value="M">Hombre</option>
+            <option value="F">Mujer</option>
+          </select>
+        </div>
+        <div class="col-12 col-lg-4 form-group py-1 px-1">
+          <label for="perfil_edad" class="col-12 pb-1">Edad</label>
+          <input formControlName="edad" class="form-control col-12" id="perfil_edad" type="number" min="18" max="90"
+            required>
+        </div>
+        <div class="col-12 col-lg-4 form-group py-1 px-0 pl-1">
+          <label for="perfil_preferencia_sexual" class="col-12 pb-1">Preferencia</label>
+          <select formControlName="preferencias" class="form-control col-12" id="perfil_preferencia_sexual" required>
+            <option value="M">Hombre</option>
+            <option value="F">Mujer</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 form-group pt-1 px-0">
+          <label for="img" class="col-12 pb-1">Url</label>
+      <input formControlName="img" class="form-control col-12" id="img" type="text" maxlength="250" required />
+        </div>
+    </div>
+
+    <div class="col-12 form-group pt-3">
+      <label for="descripcion" class="col-12">Descripción</label>
+      <textarea class="form-control col-12" id="descripcion" rows="3" maxlength="250"></textarea>
+    </div>
+  </div>
+
+  <div class="row col-12 pt-3 d-lg-flex justify-content-end m-0 p-0">
+      <div class="col-12 col-md-6 col-lg-2 mb-3 mb-md-0 pr-md-2 pr-lg-0 mr-lg-3"><button class="btn btn-info btn-block" (click)="guardarUsuario()">Guardar</button></div>
+      <div class="col-12 col-md-6 col-lg-2 pl-md-2 pl-lg-0"><button class="btn btn-danger btn-block" (click)="borrarUsuario()">Eliminar</button></div>
+  </div>
+
+
+</form>
+
+<app-footer></app-footer>
