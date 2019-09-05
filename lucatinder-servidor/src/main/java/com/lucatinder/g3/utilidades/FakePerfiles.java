@@ -92,12 +92,29 @@ public class FakePerfiles {
 		return listPerfil;
 	}
 
-	
+	/** ramdomNumber
+	 * 
+	 * debuelve un numero aleatorio
+	 * @param min_num
+	 * @param max_num
+	 * @return ramdom number
+	 * @author jesus
+	 * 28/08/2019
+	 */
 	public static int ramdomNumber(int min_num,int max_num) {
 		Faker faker = new Faker();
 		return max_num = faker.number().numberBetween(min_num, max_num);
 		
 	}
+	/** metodo ramdomPhoto
+	 * 
+	 * debuelve una foto teniendo en cuenta el sexo del perfil
+	 * 
+	 * @param String sex 
+	 * @return String foto
+	 * @author jesus
+	 * 05/09/2019
+	 */
 	public static String ramdomPhoto(String sex) {
 		System.out.println("-------entrando en ramdomPhoto el sexo del suso dicho es : "+sex);
 		int f =0;
