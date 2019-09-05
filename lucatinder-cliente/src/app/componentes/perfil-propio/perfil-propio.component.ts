@@ -42,26 +42,22 @@ export class PerfilPropioComponent implements OnInit {
 
   }
 
-  async cargarUsuario() {
-    await this._servicio.obtenerPerfil(parseInt(localStorage.getItem("id_lucatinder"))).subscribe((respuesta: Perfil) => { this.perfil = respuesta; console.log(respuesta) });
-  }
-
-  guardarUsuario() {
-
+  guardarPerfil() {
     this.perfil = new Perfil(
       this.formulario.value.correo,
       this.formulario.value.password,
       this.formulario.value.nombre,
       this.formulario.value.edad,
       this.formulario.value.genero,
-      this.formulario.value.preferencias);
-
-    console.info(this.perfil);
-
-    //this._servicio.crearPerfil(this.perfil).subscribe((respuesta:Perfil)=>{console.log(respuesta)});
+      this.formulario.value.preferencias,
+      parseInt(localStorage.getItem("id_lucatinder")),
+      this.formulario.value.descripcion,
+      this.formulario.value.img,
+      );
+    this._servicio.actualizarPerfil(this.perfil).subscribe((respuesta:boolean) => {console.log(respuesta)});
   }
 
-  borrarUsuario() {
+  borrarPerfil() {
     this._servicio.bajaPerfil(this.perfil.id).subscribe();
     localStorage.removeItem("id_lucatinder");
     this.ruta.navigate(["/"]);

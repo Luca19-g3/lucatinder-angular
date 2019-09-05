@@ -55,4 +55,8 @@ export class ServicioService {
     return this.http.get(this.userUrl + "bajaperfilrest?id=" + id);
   }
 
+  actualizarPerfil(perfil: Perfil) {
+    return this.http.post(this.userUrl + "actualizarperfil", perfil);
+  }
+
 }

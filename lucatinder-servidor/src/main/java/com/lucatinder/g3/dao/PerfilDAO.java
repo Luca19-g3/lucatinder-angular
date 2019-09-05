@@ -2,6 +2,8 @@ package com.lucatinder.g3.dao;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.lucatinder.g3.modelo.Perfil;
 /**
  * Interface PerfilDAO
@@ -13,8 +15,8 @@ import com.lucatinder.g3.modelo.Perfil;
  * 27/08/2019
  * 
  */
-public interface PerfilDAO {
-
+public interface PerfilDAO{
+	
 	public Perfil newPerfil(Perfil p);
 	public Perfil getPerfil(int id);
 	public List<Perfil> getListaPerfil(int id, int longitud);

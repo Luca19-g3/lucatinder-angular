@@ -255,5 +255,26 @@ public class ControladorRest {
 		return servicio.listarMatches(id);
 	}
 	
+	/**
+	 * Método actualizarPerfil
+	 *
+	 * Método para actualizar un perfil.
+	 * 
+	 * @param Perfil p objeto perfil con los datos del perfil a actualizar 
+	 * @param int id del usuario a actualizar 
+	 * 
+	 * @version 1.0
+	 * @author Joaquin
+	 * @return boolean - true = el perfil se ha actualizado | false = el perfil no se ha actualizado
+	 *         05/09/2019
+	 *
+	 */
+	
+	@PostMapping(value = "/actualizarperfil")
+	public boolean actualizarPerfil(@RequestBody Perfil p) {
+		logger.info("-----Ejecutando el metodo actualizarPerfil en la clase ControladorRest");
+		return servicio.modificarPerfil(p.getId(), p);
+	}
+	
 
 }

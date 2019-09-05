@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 
-<form [formGroup]="formulario" (ngSubmit)="registrarUsuario()" action="index.html" class="my-4 py-4">
+<form [formGroup]="formulario" class="my-4 py-4">
   <div class="row p-0 m-0 col-12">
 
     <div class="col-12 col-lg-6 d-flex align-items-center">
@@ -46,23 +46,26 @@
         </div>
       </div>
       <div class="col-12 form-group pt-1 px-0">
-          <label for="img" class="col-12 pb-1">Url</label>
-      <input formControlName="img" class="form-control col-12" id="img" type="text" maxlength="250" required />
-        </div>
+        <label for="img" class="col-12 pb-1">Url</label>
+        <input formControlName="img" class="form-control col-12" id="img" type="text" maxlength="250" required />
+      </div>
     </div>
 
     <div class="col-12 form-group pt-3">
       <label for="descripcion" class="col-12">Descripción</label>
-      <textarea class="form-control col-12" id="descripcion" rows="3" maxlength="250"></textarea>
+      <textarea formControlName="descripcion" class="form-control col-12" id="descripcion" rows="3"
+        maxlength="250"></textarea>
     </div>
   </div>
 
   <div class="row col-12 pt-3 d-lg-flex justify-content-end m-0 p-0">
-      <div class="col-12 col-md-4 col-lg-2 mb-3 mb-md-0 pr-md-2 pr-lg-0 mr-lg-3"><button class="btn btn-outline-info btn-block" (click)="guardarUsuario()">Guardar</button></div>
-      <div class="col-12 col-md-4 col-lg-2 mb-3 mb-md-0 pr-md-2 pr-lg-0 mr-lg-3"><button class="btn btn-outline-danger btn-block" (click)="borrarUsuario()">Eliminar</button></div>
-      <div class="col-12 col-md-4 col-lg-2 pl-md-2 pl-lg-0"><button class="btn btn-dark btn-block" (click)="salir()">Salir</button></div>
+    <div class="col-12 col-md-4 col-lg-2 mb-3 mb-md-0 pr-md-2 pr-lg-0 mr-lg-3"><button
+        class="btn btn-outline-info btn-block" (click)="guardarPerfil()">Guardar</button></div>
+    <div class="col-12 col-md-4 col-lg-2 mb-3 mb-md-0 pr-md-2 pr-lg-0 mr-lg-3"><button
+        class="btn btn-outline-danger btn-block" (click)="borrarPerfil()">Eliminar</button></div>
+    <div class="col-12 col-md-4 col-lg-2 pl-md-2 pl-lg-0"><button class="btn btn-dark btn-block"
+        (click)="salir()">Salir</button></div>
   </div>
-
 
 </form>
 
